@@ -15,6 +15,7 @@ const Login = () => {
     try {
       const response = await api.post("/auth/login", { email, password });
       const { token, userType } = response.data;
+      //TODO: MANEJO DE ERRORES
 
       // Guardar token en localStorage
       localStorage.setItem("authToken", token);
@@ -37,6 +38,7 @@ const Login = () => {
           navigate("/login");
       }
     } catch (err) {
+      console.error("Fallo en la autenticacion. " + err);
       setError("Credenciales incorrectas. Por favor, intenta de nuevo.");
     }
   };
