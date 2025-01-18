@@ -1,0 +1,78 @@
+### USUARIOS REQUESTS ###
+
+POST http://localhost:8080/usuarios/news
+Content-Type: application/json
+
+[
+    {
+        "nombre": "Juan",
+        "apellido": "Pérez",
+        "email": "juan.perez@example.com",
+        "psw": "12345",
+        "direccion": "Calle 123, Ciudad XYZ",
+        "telefono": "1234567890",
+        "rol": { "id_rol": 1 }
+    },{
+        "nombre": "Juana",
+        "apellido": "Taliercio",
+        "email": "juana@example.com",
+        "psw": "12345",
+        "direccion": "dadas 123",
+        "telefono": "1234567890",
+        "rol": { "id_rol": 2, "nombre": "ADMINISTRADOR" }
+    },{
+        "nombre": "Paco",
+        "apellido": "Ponce",
+        "email": "picopala@example.com",
+        "psw": "12345",
+        "direccion": "dadaasdf 5",
+        "telefono": "1234567890",
+        "rol": { "id_rol": 3 }
+    }, {
+        "nombre": "Carolina",
+        "apellido": "Rombolá",
+        "email": "caro@example.com",
+        "psw": "12345",
+        "direccion": "asd 522",
+        "telefono": "1234567890",
+        "rol": { "id_rol": 4 }
+    }, {
+        "nombre": "Lilia",
+        "apellido": "Mallo",
+        "email": "lili@example.com",
+        "psw": "12345",
+        "direccion": "564sda",
+        "telefono": "1234567890",
+        "rol": { "id_rol": 4 }
+    }
+]
+
+###
+
+POST http://localhost:8080/usuarios/new
+Content-Type: application/json
+
+{
+    "nombre": "El nuevo",
+    "apellido": "deEsta",
+    "email": "agar.ramessta@example.com",
+    "psw": "12345",
+    "direccion": "asasdf",
+    "telefono": "1234567890",
+    "rol": { "id_rol": 4 }
+}
+
+###
+
+GET http://localhost:8080/usuarios
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/usuarios/17
+Content-Type: application/json
+
+###
+
+DELETE  http://localhost:8080/usuarios/18
+Content-Type: application/json

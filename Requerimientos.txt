@@ -1,5 +1,0 @@
-Siguiendo la consigna del primer parcial, deberemos transformar el proyecto, respetando el modelo MVC y creando una aplicacion web.
-Donde la evaluacion final constará de la presentacion del programa funcional, en 3 dispositivos. 
-1. En el primero estara almacenada la Base de datos.
-2. En la segunda el programa se ejecutara y estara corriendo.
-3. Mientras que en con un ultimo dispositivo se deberá de ingresar, y con este ultimo se pondran a prueba todos los aspectos a evaluar en tiempo de ejecucion de nuestro programa.
