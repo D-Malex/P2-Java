@@ -14,32 +14,19 @@ const Login = () => {
 
     try {
       const response = await api.post("/auth/login", { email, password });
-      const { token, userType } = response.data;
+      const { token, userType, message } = response.data;
       //TODO: MANEJO DE ERRORES
 
       // Guardar token en localStorage
       localStorage.setItem("authToken", token);
+      localStorage.setItem("userType", JSON.stringify(userType)); // Guardar {id_rol, nombre}
+      console.info(message);
 
-      //? Está bien que esto lo maneje el login o deberia hacerlo el app/main
-      switch (userType) {
-        case "Owner":
-          navigate("/home/owner");
-          break;
-        case "Admin":
-          navigate("/home/admin");
-          break;
-        case "Vendor":
-          navigate("/home/vendor");
-          break;
-        case "Tourist":
-          navigate("/home/tourist");
-          break;
-        default:
-          navigate("/login");
-      }
+      window.location.href = '/home';
+      
     } catch (err) {
       console.error("Fallo en la autenticacion. " + err);
-      setError("Credenciales incorrectas. Por favor, intenta de nuevo.");
+      setError("Fallo en la autenticacion. Por favor, intenta de nuevo.");
     }
   };
 
