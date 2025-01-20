@@ -1,0 +1,45 @@
+/* Contenedor principal del navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f9fa; /* Color de fondo */
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo para el logo */
+.navbar-logo img {
+  height: 40px;
+  cursor: pointer;
+}
+
+/* Contenedor de los enlaces */
+.navbar-links {
+  display: flex;
+  gap: 20px; /* Espaciado entre enlaces */
+  flex: 1; /* Hace que los enlaces ocupen espacio */
+  justify-content: center; /* Centra los enlaces */
+}
+
+/* Estilo para los enlaces */
+.navbar-links a {
+  text-decoration: none;
+  color: #333; /* Color del texto */
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Efecto hover en los enlaces */
+.navbar-links a:hover {
+  color: #007bff; /* Azul cuando se pasa el mouse */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

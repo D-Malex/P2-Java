@@ -3,10 +3,12 @@ import React from "react";
 import ProtectedRoute from "./ProtectedRoute";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
-import OwnerHome from "../pages/Home/OwnerHome";
-import AdminHome from "../pages/Home/AdminHome";
-import SellerHome from "../pages/Home/SellerHome";
-import TouristHome from "../pages/Home/TouristHome";
+import OwnerHome from "../pages/owner/Home";
+import AdminHome from "../pages/admin/AdminHome";
+import SellerHome from "../pages/seller/Home";
+import TouristHome from "../pages/tourist/Home";
+import "./styles/App.css"
+import "./styles/index.css"
 
 function AppRoutes() {
   const userType = JSON.parse(localStorage.getItem("userType"));
