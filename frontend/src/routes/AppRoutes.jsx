@@ -9,34 +9,45 @@ import SellerHome from "../pages/Home/SellerHome";
 import TouristHome from "../pages/Home/TouristHome";
 
 function AppRoutes() {
-  // Recuperar el userType del localStorage
   const userType = JSON.parse(localStorage.getItem("userType"));
+
+  // Renderizar rutas basadas en el rol del usuario
+  const getHomeRoutes = () => {
+    if (!userType) {
+      console.log("Aun no se validaron las credenciales.");
+      return null; 
+    } else {
+      console.log("Crendenciales validas, redireccionando...");
+    }
+
+    switch (userType.nombre) {
+      case "DUENIO":
+        return (
+          <Route path="/home" element={ <ProtectedRoute> <OwnerHome /> </ProtectedRoute> } />
+        );
+      case "ADMINISTRADOR":
+        return (
+          <Route path="/home" element={ <ProtectedRoute> <AdminHome /> </ProtectedRoute> } />
+        );
+      case "VENDEDOR":
+        return (
+          <Route path="/home" element={ <ProtectedRoute> <SellerHome /> </ProtectedRoute> } />
+        );
+      case "TURISTA":
+        return (
+          <Route path="/home" element={ <ProtectedRoute> <TouristHome /> </ProtectedRoute> } />
+        );
+      default:
+        console.error("ERROR: "+ userType.nombre+",no es reconocido como un rol de usuario valido.");
+        return null; 
+    }
+  };
 
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
-        
-        {userType.nombre === "DUENIO" && (
-          <Route path="/home" element={<ProtectedRoute><OwnerHome /></ProtectedRoute>} />
-          /* RUTAS DEL DUEÑO */
-        )}
-        
-        {userType && userType.nombre === "ADMINISTRADOR" && (
-          <Route path="/home" element={<ProtectedRoute><AdminHome /></ProtectedRoute>} />
-          /* RUTAS DEL ADMIN */
-        )}
-
-        {userType && userType.nombre === "VENDEDOR" && (
-          <Route path="/home" element={<ProtectedRoute><SellerHome /></ProtectedRoute>} />
-          /* RUTAS DEL VENDEDOR */
-        )}
-
-        {userType && userType.nombre === "TURISTA" && (
-          <Route path="/home" element={<ProtectedRoute><TouristHome /></ProtectedRoute>} />
-          /* RUTAS DEL TURISTA */
-        )}
-        
+      {getHomeRoutes()}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
