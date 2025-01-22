@@ -76,3 +76,8 @@ Content-Type: application/json
 
 DELETE  http://localhost:8080/usuarios/18
 Content-Type: application/json
+
+###
+
+GET http://localhost:8080/usuarios/emails
+Content-Type: application/json

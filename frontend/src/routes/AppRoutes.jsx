@@ -7,6 +7,7 @@ import OwnerHome from "../pages/owner/Home";
 import AdminHome from "../pages/admin/AdminHome";
 import SellerHome from "../pages/seller/Home";
 import TouristHome from "../pages/tourist/Home";
+import TouristProfile from "../pages/tourist/Profile";
 import "./styles/App.css"
 import "./styles/index.css"
 
@@ -37,7 +38,10 @@ function AppRoutes() {
         );
       case "TURISTA":
         return (
-          <Route path="/home" element={ <ProtectedRoute> <TouristHome /> </ProtectedRoute> } />
+        <>
+            <Route path="/home" element={ <ProtectedRoute> <TouristHome /> </ProtectedRoute> } />
+            <Route path="/profile" element={ <ProtectedRoute> <TouristProfile /> </ProtectedRoute>} />
+        </>
         );
       default:
         console.error("ERROR: "+ userType.nombre+",no es reconocido como un rol de usuario valido.");

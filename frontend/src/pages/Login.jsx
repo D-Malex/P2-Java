@@ -20,6 +20,7 @@ const Login = () => {
       // Guardar token en localStorage
       localStorage.setItem("authToken", token);
       localStorage.setItem("userType", JSON.stringify(userType)); // Guardar {id_rol, nombre}
+      localStorage.setItem("email", email);
       console.info(message);
 
       window.location.href = '/home';

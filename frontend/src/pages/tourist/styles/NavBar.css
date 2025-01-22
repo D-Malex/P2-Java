@@ -3,9 +3,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #f8f9fa; /* Color de fondo */
+  background-color: #f8f9fa;
   padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin-top: 0px;
 }
 
 /* Estilo para el logo */

@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.columbiaviajes.models.Usuario;
@@ -49,9 +51,23 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
                 .body(usuariosCreados);
         }
-
+        
         return ResponseEntity.status(HttpStatus.CREATED).body(usuariosCreados);
     }
+    
+    @PutMapping("/update")
+    public ResponseEntity<?> actualizarUsuario(@RequestBody Usuario usuario) {
+        try {
+            Usuario actualizado = usuarioService.actualizarUsuario(usuario);
+            if (actualizado == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado o email duplicado.");
+            }
+            return ResponseEntity.ok(actualizado);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al actualizar el usuario: " + e.getMessage());
+        }
+    }
+    
 
     @GetMapping
     public ResponseEntity<List<Usuario>> obtenerUsuarios() {
@@ -64,6 +80,20 @@ public class UsuarioController {
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/email/")
+    public ResponseEntity<Usuario> obtenerUsuarioPorEmail(@RequestParam String email) {
+        return usuarioService.buscarPorEmail(email)
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/emails")
+    public List<String> obtenerEmail() {
+        return usuarioService.obtenerEmails();
+    }
+    
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminarUsuario(@PathVariable Long id) {
