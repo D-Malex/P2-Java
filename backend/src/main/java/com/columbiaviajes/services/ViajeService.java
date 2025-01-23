@@ -21,7 +21,7 @@ public class ViajeService {
   }
 
   public List<Viaje> obtenerViajes() {
-      return (List<Viaje>) viajeRepository.findAll();
+      return (List<Viaje>) viajeRepository.obtenerViajesOrdenados();
   }
 
   public Optional<Viaje> buscarPorId(Long id) {

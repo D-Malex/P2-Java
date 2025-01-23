@@ -2,6 +2,8 @@ package com.columbiaviajes.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -37,5 +39,6 @@ public class Sucursal {
     String telefono;
 
     @OneToMany(targetEntity=Viaje.class, fetch=FetchType.LAZY, mappedBy="sucursal")
+    @JsonIgnore
     List<Viaje> viajes;
 }

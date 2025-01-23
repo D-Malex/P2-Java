@@ -9,6 +9,7 @@ import SellerHome from "../pages/seller/Home";
 import TouristHome from "../pages/tourist/Home";
 import TouristProfile from "../pages/tourist/Profile";
 import TouristSucursales from "../pages/tourist/Sucursales";
+import TouristViajes from "../pages/tourist/Viajes";
 import "./styles/App.css"
 import "./styles/index.css"
 
@@ -42,7 +43,8 @@ function AppRoutes() {
         <>
             <Route path="/home" element={ <ProtectedRoute> <TouristHome /> </ProtectedRoute> } />
             <Route path="/profile" element={ <ProtectedRoute> <TouristProfile /> </ProtectedRoute>} />
-            <Route path="/Sucursales" element={ <ProtectedRoute> <TouristSucursales /> </ProtectedRoute>} />
+            <Route path="/sucursales" element={ <ProtectedRoute> <TouristSucursales /> </ProtectedRoute>} />
+            <Route path="/trips" element={ <ProtectedRoute> <TouristViajes /> </ProtectedRoute>} />
         </>
         );
       default:
