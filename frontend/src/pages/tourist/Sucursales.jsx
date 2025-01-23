@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "./NavBar"; // Importamos la barra de navegación
-import api from "../../utils/api"; // Configuración de Axios o similar
-import "./styles/Sucursales.css"; // Importamos los estilos
+import NavBar from "./NavBar";
+import Footer from "./Footer";
+import api from "../../utils/api";
+import "./styles/Sucursales.css"; 
 
 function Sucursales() {
   const [branches, setBranches] = useState([]); // Estado para almacenar las sucursales
@@ -41,6 +42,7 @@ function Sucursales() {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

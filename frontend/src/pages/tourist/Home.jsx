@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"; // Agregar los hooks necesarios
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 import api from "../../utils/api";
 import "./styles/Home.css";
 import "./styles/NavBar.css";
@@ -58,23 +59,7 @@ function Home() {
           Ver más sucursales
         </button>
       </section>
-
-      <footer className="footer">
-        <h2>Contacto</h2>
-        <p>Email: contacto@columbiaviajes.com</p>
-        <p>Teléfono: +54 123-456-789</p>
-        <div className="social-media">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-            Facebook
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-            Instagram
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            Twitter
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

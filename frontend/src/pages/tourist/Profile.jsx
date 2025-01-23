@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 import "./styles/Profile.css";
 
@@ -135,6 +136,7 @@ const Profile = () => {
           </div>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };
