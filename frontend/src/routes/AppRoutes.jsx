@@ -10,6 +10,7 @@ import TouristHome from "../pages/tourist/Home";
 import TouristProfile from "../pages/tourist/Profile";
 import TouristSucursales from "../pages/tourist/Sucursales";
 import TouristViajes from "../pages/tourist/Viajes";
+import TouristNosotros from "../pages/tourist/Nosotros";
 import "./styles/App.css"
 import "./styles/index.css"
 
@@ -45,6 +46,7 @@ function AppRoutes() {
             <Route path="/profile" element={ <ProtectedRoute> <TouristProfile /> </ProtectedRoute>} />
             <Route path="/sucursales" element={ <ProtectedRoute> <TouristSucursales /> </ProtectedRoute>} />
             <Route path="/trips" element={ <ProtectedRoute> <TouristViajes /> </ProtectedRoute>} />
+            <Route path="/about-us" element={ <ProtectedRoute> <TouristNosotros /> </ProtectedRoute>} />
         </>
         );
       default:
