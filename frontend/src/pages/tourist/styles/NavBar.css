@@ -9,6 +9,31 @@
   margin-top: 0px;
 }
 
+/* Botón de logout */
+.navbar-logout {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; 
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 20px;  /* Para darle espacio al logo */
+  transition: color 0.3s ease;
+}
+
+/* Efecto hover en el botón de logout */
+.logout-button:hover {
+  color: #ff4d4d;  /* Color rojo cuando se pasa el mouse */
+}
+
 /* Estilo para el logo */
 .navbar-logo img {
   height: 40px;

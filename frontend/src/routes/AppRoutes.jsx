@@ -20,11 +20,10 @@ function AppRoutes() {
   // Renderizar rutas basadas en el rol del usuario
   const getHomeRoutes = () => {
     if (!userType) {
-      console.log("Aun no se validaron las credenciales.");
-      return null; 
-    } else {
-      console.log("Crendenciales validas, redireccionando...");
+      console.log("No se encontró un usuario autenticado.");
+      return <Route path="*" element={<Navigate to="/login" replace />} />; // Redirigir al login si no hay userType
     }
+    console.log("Usuario autenticado, redireccionando...");
 
     switch (userType.nombre) {
       case "DUENIO":
