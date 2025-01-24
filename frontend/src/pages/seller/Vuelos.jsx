@@ -32,8 +32,8 @@ const Vuelos = () => {
           {vuelos.map((vuelo) => (
             <div key={vuelo.id_vuelo} className="vuelo-card" onClick={() => handleCardClick(vuelo.id_vuelo)} >
               <h3>{vuelo.destino}</h3>
-              <p>Fecha: {new Date(vuelo.fecha).toLocaleDateString()}</p>
-              <p>Origen: {vuelo.origen}</p>
+              <p><b>Fecha:</b> {new Date(vuelo.fecha).toLocaleDateString()}</p>
+              <p><b>Origen:</b> {vuelo.origen}</p>
               <p>Plazas Totales: {vuelo.plazasTotales}</p>
             </div>
           ))}
