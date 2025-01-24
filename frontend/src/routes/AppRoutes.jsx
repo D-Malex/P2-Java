@@ -6,7 +6,7 @@ import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 /*IMPORT TOURIST PAGES*/
 import THome from "../pages/tourist/Home";
-import TProfile from "../pages/tourist/Profile";
+import TPerfil from "../pages/tourist/Profile";
 import TSucursal from "../pages/tourist/Sucursales";
 import TViajes from "../pages/tourist/Viajes";
 import TNosotros from "../pages/Nosotros";
@@ -15,6 +15,7 @@ import SHome from "../pages/seller/Home";
 import SPaquetes from "../pages/seller/Paquetes";
 import SVuelos from "../pages/seller/Vuelos";
 import SHoteles from "../pages/seller/Hoteles";
+import SPerfil from "../pages/seller/Profile";
 /*IMPORT ADMIN PAGES*/
 import OwnerHome from "../pages/owner/Home";
 import AdminHome from "../pages/admin/AdminHome";
@@ -46,13 +47,14 @@ function AppRoutes() {
             <Route path="/home" element={ <ProtectedRoute>       <SHome />      </ProtectedRoute> } />
             <Route path="/packages" element={ <ProtectedRoute>   <SPaquetes />  </ProtectedRoute> } />
             <Route path="/flights" element={ <ProtectedRoute>    <SVuelos />    </ProtectedRoute> } />
-            <Route path="/hotels" element={ <ProtectedRoute>    <SHoteles />    </ProtectedRoute> } />
+            <Route path="/hotels" element={ <ProtectedRoute>     <SHoteles />    </ProtectedRoute> } />
+            <Route path="/profile" element={ <ProtectedRoute>    <SPerfil />    </ProtectedRoute> } />
         </>
         );
       case "TURISTA": return (
         <>
             <Route path="/home" element={       <ProtectedRoute> <THome />      </ProtectedRoute> } />
-            <Route path="/profile" element={    <ProtectedRoute> <TProfile />   </ProtectedRoute> } />
+            <Route path="/profile" element={    <ProtectedRoute> <TPerfil />   </ProtectedRoute> } />
             <Route path="/sucursales" element={ <ProtectedRoute> <TSucursal />  </ProtectedRoute> } />
             <Route path="/trips" element={      <ProtectedRoute> <TViajes />    </ProtectedRoute> } />
             <Route path="/about-us" element={   <ProtectedRoute> <TNosotros />  </ProtectedRoute> } />
