@@ -18,6 +18,9 @@ public class UsuarioService {
     }
 
     public Usuario crearUsuario(Usuario usuario) {
+        if (usuario.esVendedor() && usuario.getId_sucursal() == null) {
+            throw new IllegalArgumentException("El vendedor debe tener una sucursal asignada.");
+        }
         return usuarioRepository.save(usuario);
     }
 
@@ -26,12 +29,17 @@ public class UsuarioService {
         if (usuarioExistente.isEmpty()) {
             throw new IllegalArgumentException("El usuario no existe en la base de datos.");
         }
-        
+    
         Optional<Usuario> usuarioConEmail = usuarioRepository.findByEmail(usuario.getEmail());
         if (usuarioConEmail.isPresent() && !usuarioConEmail.get().getId_usuario().equals(usuario.getId_usuario())) {
             throw new IllegalArgumentException("El email ya está siendo usado por otro usuario.");
         }
-        
+    
+        // Verificar si el usuario es vendedor y tiene sucursal asignada
+        if (usuario.esVendedor() && usuario.getId_sucursal() == null) {
+            throw new IllegalArgumentException("El vendedor debe tener una sucursal asignada.");
+        }
+    
         return usuarioRepository.save(usuario);
     }
 

@@ -27,8 +27,12 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping("/new") //CREAR 1 USUARIO NUEVO
-    public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario usuario) {
+    @PostMapping("/new")
+    public ResponseEntity<?> crearUsuario(@RequestBody Usuario usuario) {
+        if (usuario.esVendedor() && usuario.getId_sucursal() == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body("El vendedor debe tener una sucursal asignada.");
+        }
         Usuario nuevoUsuario = usuarioService.crearUsuario(usuario);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoUsuario);
     }
@@ -58,13 +62,16 @@ public class UsuarioController {
     @PutMapping("/update")
     public ResponseEntity<?> actualizarUsuario(@RequestBody Usuario usuario) {
         try {
-            Usuario actualizado = usuarioService.actualizarUsuario(usuario);
-            if (actualizado == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado o email duplicado.");
+            // Verificar si es vendedor y tiene sucursal
+            if (usuario.esVendedor() && usuario.getId_sucursal() == null) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("El vendedor debe tener una sucursal asignada.");
             }
+            Usuario actualizado = usuarioService.actualizarUsuario(usuario);
             return ResponseEntity.ok(actualizado);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al actualizar el usuario: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Error al actualizar el usuario: " + e.getMessage());
         }
     }
     

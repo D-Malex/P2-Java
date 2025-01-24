@@ -59,8 +59,9 @@ public class DataInitializer implements CommandLineRunner {
                 "1234", 
                 "Acala vuelta 123", 
                 "12345678", 
-                null, 
-                roleRepository.findByNombre(ERole.DUENIO)
+                null,
+                roleRepository.findByNombre(ERole.DUENIO),
+                null
             ));
             usuarioRepository.save(new Usuario(
                 null, 
@@ -70,8 +71,9 @@ public class DataInitializer implements CommandLineRunner {
                 "1234", 
                 "Nlaotra Cuadra 123", 
                 "12345678", 
-                null, 
-                roleRepository.findByNombre(ERole.ADMINISTRADOR)
+                null,
+                roleRepository.findByNombre(ERole.ADMINISTRADOR),
+                null
             ));
             usuarioRepository.save(new Usuario(
                 null, 
@@ -81,8 +83,9 @@ public class DataInitializer implements CommandLineRunner {
                 "1234", 
                 "Po raca 123", 
                 "12345678", 
-                null, 
-                roleRepository.findByNombre(ERole.VENDEDOR)
+                null,
+                roleRepository.findByNombre(ERole.VENDEDOR),
+                1L 
             ));
             usuarioRepository.save(new Usuario(
                 null, 
@@ -92,8 +95,9 @@ public class DataInitializer implements CommandLineRunner {
                 "1234", 
                 "Puesdon Demas 123", 
                 "12345678", 
-                null, 
-                roleRepository.findByNombre(ERole.TURISTA)
+                null,
+                roleRepository.findByNombre(ERole.TURISTA),
+                null 
             ));
             System.out.println("✅ Usuarios iniciales cargados en la base de datos con exito.");
         } else {

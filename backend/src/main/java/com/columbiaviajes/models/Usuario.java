@@ -59,4 +59,13 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "id_rol", nullable=false)
     RoleEntity rol;
+
+    // SUCURSAL ASIGNADA PARA LOS VENDEDORES
+    @Column(nullable=true)
+    Long id_sucursal;
+    
+    // Método para verificar si el usuario es vendedor
+    public boolean esVendedor() {
+        return this.rol != null && ERole.VENDEDOR.equals(this.rol.getNombre());
+    }
 }
