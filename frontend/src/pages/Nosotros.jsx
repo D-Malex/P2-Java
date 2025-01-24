@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../tourist/NavBar";
-import Footer from "../tourist/Footer";
+import NavBar from "./tourist/NavBar";
+import Footer from "./Footer";
 import "./styles/Nosotros.css"; 
 
 const Nosotros   = () => {

@@ -1,18 +1,23 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import React from "react";
+/*IMPORT GENERAL*/
 import ProtectedRoute from "./ProtectedRoute";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
+/*IMPORT TOURIST PAGES*/
+import THome from "../pages/tourist/Home";
+import TProfile from "../pages/tourist/Profile";
+import TSucursal from "../pages/tourist/Sucursales";
+import TViajes from "../pages/tourist/Viajes";
+import TNosotros from "../pages/Nosotros";
+/*IMPORT SELLER PAGES*/
+import SellerHome from "../pages/seller/Home";
 import OwnerHome from "../pages/owner/Home";
 import AdminHome from "../pages/admin/AdminHome";
-import SellerHome from "../pages/seller/Home";
-import TouristHome from "../pages/tourist/Home";
-import TouristProfile from "../pages/tourist/Profile";
-import TouristSucursales from "../pages/tourist/Sucursales";
-import TouristViajes from "../pages/tourist/Viajes";
-import TouristNosotros from "../pages/tourist/Nosotros";
+/*IMPORT CSS*/
 import "./styles/App.css"
 import "./styles/index.css"
+
 
 function AppRoutes() {
   const userType = JSON.parse(localStorage.getItem("userType"));
@@ -26,26 +31,22 @@ function AppRoutes() {
     console.log("Usuario autenticado, redireccionando...");
 
     switch (userType.nombre) {
-      case "DUENIO":
-        return (
+      case "DUENIO": return (
           <Route path="/home" element={ <ProtectedRoute> <OwnerHome /> </ProtectedRoute> } />
         );
-      case "ADMINISTRADOR":
-        return (
+      case "ADMINISTRADOR": return (
           <Route path="/home" element={ <ProtectedRoute> <AdminHome /> </ProtectedRoute> } />
         );
-      case "VENDEDOR":
-        return (
+      case "VENDEDOR": return (
           <Route path="/home" element={ <ProtectedRoute> <SellerHome /> </ProtectedRoute> } />
         );
-      case "TURISTA":
-        return (
+      case "TURISTA": return (
         <>
-            <Route path="/home" element={ <ProtectedRoute> <TouristHome /> </ProtectedRoute> } />
-            <Route path="/profile" element={ <ProtectedRoute> <TouristProfile /> </ProtectedRoute>} />
-            <Route path="/sucursales" element={ <ProtectedRoute> <TouristSucursales /> </ProtectedRoute>} />
-            <Route path="/trips" element={ <ProtectedRoute> <TouristViajes /> </ProtectedRoute>} />
-            <Route path="/about-us" element={ <ProtectedRoute> <TouristNosotros /> </ProtectedRoute>} />
+            <Route path="/home" element={       <ProtectedRoute> <THome />      </ProtectedRoute> } />
+            <Route path="/profile" element={    <ProtectedRoute> <TProfile />   </ProtectedRoute> } />
+            <Route path="/sucursales" element={ <ProtectedRoute> <TSucursal />  </ProtectedRoute> } />
+            <Route path="/trips" element={      <ProtectedRoute> <TViajes />    </ProtectedRoute> } />
+            <Route path="/about-us" element={   <ProtectedRoute> <TNosotros />  </ProtectedRoute> } />
         </>
         );
       default:
@@ -56,8 +57,8 @@ function AppRoutes() {
 
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={ <Navigate to="/login" replace /> } />
+      <Route path="/login" element={ <Login /> } />
       {getHomeRoutes()}
       <Route path="*" element={<NotFound />} />
     </Routes>

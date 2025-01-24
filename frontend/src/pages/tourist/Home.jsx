@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react"; // Agregar los hooks necesarios
 import NavBar from "./NavBar";
-import Footer from "./Footer";
+import Footer from "../Footer";
 import api from "../../utils/api";
 import "./styles/Home.css";
-import "./styles/NavBar.css";
 
 function Home() {
   const [branches, setBranches] = useState([]); // Estado para las sucursales

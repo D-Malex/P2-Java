@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import Footer from "./Footer";
+import Footer from "../Footer";
 import api from "../../utils/api";
 import "./styles/Sucursales.css"; 
 

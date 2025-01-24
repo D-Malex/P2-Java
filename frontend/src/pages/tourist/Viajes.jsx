@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../tourist/NavBar";
-import Footer from "../tourist/Footer";
+import Footer from "../Footer";
 import api from "../../utils/api";
 import "./styles/Viajes.css";
 
