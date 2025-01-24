@@ -28,7 +28,7 @@ public class Sucursal {
     @Id
     @Column(nullable=false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    Long id_Sucursal;
+    Long id_sucursal;
 
     @Column(nullable=false)
     String direccion;
