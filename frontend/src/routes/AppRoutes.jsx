@@ -11,7 +11,9 @@ import TSucursal from "../pages/tourist/Sucursales";
 import TViajes from "../pages/tourist/Viajes";
 import TNosotros from "../pages/Nosotros";
 /*IMPORT SELLER PAGES*/
-import SellerHome from "../pages/seller/Home";
+import SHome from "../pages/seller/Home";
+import SPaquetes from "../pages/seller/Paquetes";
+/*IMPORT ADMIN PAGES*/
 import OwnerHome from "../pages/owner/Home";
 import AdminHome from "../pages/admin/AdminHome";
 /*IMPORT CSS*/
@@ -38,7 +40,10 @@ function AppRoutes() {
           <Route path="/home" element={ <ProtectedRoute> <AdminHome /> </ProtectedRoute> } />
         );
       case "VENDEDOR": return (
-          <Route path="/home" element={ <ProtectedRoute> <SellerHome /> </ProtectedRoute> } />
+        <>
+            <Route path="/home" element={ <ProtectedRoute>       <SHome />      </ProtectedRoute> } />
+            <Route path="/packages" element={ <ProtectedRoute>   <SPaquetes />  </ProtectedRoute> } />
+        </>
         );
       case "TURISTA": return (
         <>

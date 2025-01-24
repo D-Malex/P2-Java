@@ -19,44 +19,41 @@ import lombok.experimental.FieldDefaults;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@FieldDefaults(level=AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 public class Viaje {
     @Id
-    @Column(nullable=false)
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id_viaje;
 
-    @ManyToOne(targetEntity=Sucursal.class, cascade=CascadeType.PERSIST)
-    @Column(nullable=false)
-    @JoinColumn(name="id_sucursal")
+    @ManyToOne(targetEntity = Sucursal.class, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_sucursal", nullable = false) // Clave foránea para Sucursal
     Sucursal sucursal;
-    
-    @ManyToOne(targetEntity=Usuario.class, cascade=CascadeType.PERSIST)
-    @Column(nullable=false)
-    @JoinColumn(name="id_usuario")
+
+    @ManyToOne(targetEntity = Usuario.class, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_usuario", nullable = false) // Clave foránea para Usuario
     Usuario usuario;
 
-    @ManyToOne(targetEntity=Hotel.class, cascade=CascadeType.PERSIST)
-    @JoinColumn(name="id_hotel")
+    @ManyToOne(targetEntity = Hotel.class, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_hotel") // Clave foránea para Hotel
     Hotel hotel;
 
-    @Column(name="pension_hotel")
+    @Column(name = "pension_hotel")
     String pensionHotel;
-    
-    @ManyToOne(targetEntity=Vuelo.class, cascade=CascadeType.PERSIST)
-    @JoinColumn(name="id_vuelo")
+
+    @ManyToOne(targetEntity = Vuelo.class, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_vuelo") // Clave foránea para Vuelo
     Vuelo vuelo;
 
-    @Column(name="clase_vuelo")
+    @Column(name = "clase_vuelo")
     String claseVuelo;
 
-    @Column(name="fecha_llegada", columnDefinition="DATE", nullable=false)
+    @Column(name = "fecha_llegada", columnDefinition = "DATE", nullable = false)
     LocalDate fechaLlegada;
-    
-    @Column(name="fecha_retorno", columnDefinition="DATE", nullable=false)
+
+    @Column(name = "fecha_retorno", columnDefinition = "DATE", nullable = false)
     LocalDate fechaRetorno;
 
-    @Column(name="precio", nullable=false)
+    @Column(name = "precio", nullable = false)
     Long precio;
 }
