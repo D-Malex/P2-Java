@@ -13,6 +13,7 @@ import TNosotros from "../pages/Nosotros";
 /*IMPORT SELLER PAGES*/
 import SHome from "../pages/seller/Home";
 import SPaquetes from "../pages/seller/Paquetes";
+import SVuelos from "../pages/seller/Vuelos";
 /*IMPORT ADMIN PAGES*/
 import OwnerHome from "../pages/owner/Home";
 import AdminHome from "../pages/admin/AdminHome";
@@ -43,6 +44,7 @@ function AppRoutes() {
         <>
             <Route path="/home" element={ <ProtectedRoute>       <SHome />      </ProtectedRoute> } />
             <Route path="/packages" element={ <ProtectedRoute>   <SPaquetes />  </ProtectedRoute> } />
+            <Route path="/flights" element={ <ProtectedRoute>    <SVuelos />    </ProtectedRoute> } />
         </>
         );
       case "TURISTA": return (
