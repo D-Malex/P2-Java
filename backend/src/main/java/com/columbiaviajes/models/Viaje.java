@@ -23,14 +23,17 @@ import lombok.experimental.FieldDefaults;
 @Entity
 public class Viaje {
     @Id
+    @Column(nullable=false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id_viaje;
 
     @ManyToOne(targetEntity=Sucursal.class, cascade=CascadeType.PERSIST)
+    @Column(nullable=false)
     @JoinColumn(name="id_sucursal")
     Sucursal sucursal;
     
     @ManyToOne(targetEntity=Usuario.class, cascade=CascadeType.PERSIST)
+    @Column(nullable=false)
     @JoinColumn(name="id_usuario")
     Usuario usuario;
 
@@ -48,12 +51,12 @@ public class Viaje {
     @Column(name="clase_vuelo")
     String claseVuelo;
 
-    @Column(name="fecha_llegada", columnDefinition="DATE")
+    @Column(name="fecha_llegada", columnDefinition="DATE", nullable=false)
     LocalDate fechaLlegada;
     
-    @Column(name="fecha_retorno", columnDefinition="DATE")
+    @Column(name="fecha_retorno", columnDefinition="DATE", nullable=false)
     LocalDate fechaRetorno;
 
-    @Column(name="precio")
+    @Column(name="precio", nullable=false)
     Long precio;
 }

@@ -26,6 +26,7 @@ import lombok.experimental.FieldDefaults;
 @Table(name="Sucursal")
 public class Sucursal {
     @Id
+    @Column(nullable=false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id_Sucursal;
 
@@ -35,7 +36,7 @@ public class Sucursal {
     @Column(name="email", unique=true, nullable=false)
     String email;
 
-    @Column(name="telefono")
+    @Column(name="telefono", nullable=false)
     String telefono;
 
     @OneToMany(targetEntity=Viaje.class, fetch=FetchType.LAZY, mappedBy="sucursal")

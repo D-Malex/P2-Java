@@ -21,9 +21,11 @@ import lombok.experimental.FieldDefaults;
 public class RoleEntity {
 
     @Id
+    @Column(nullable=false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id_rol;
 
+    @Column(nullable=false)
     @Enumerated(EnumType.STRING)
     ERole nombre;
     

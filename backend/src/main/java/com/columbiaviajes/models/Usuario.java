@@ -48,6 +48,7 @@ public class Usuario {
 
     @Column(nullable=false)
     String direccion;
+
     @Column(nullable=false)
     String telefono;
 
@@ -56,6 +57,6 @@ public class Usuario {
     List<Viaje> viajes;
     
     @ManyToOne
-    @JoinColumn(name = "id_rol")
+    @JoinColumn(name = "id_rol", nullable=false)
     RoleEntity rol;
 }

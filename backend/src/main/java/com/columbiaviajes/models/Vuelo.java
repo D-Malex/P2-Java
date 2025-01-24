@@ -26,24 +26,26 @@ import lombok.experimental.FieldDefaults;
 @Entity
 public class Vuelo {
     @Id
+    @Column(nullable=false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id_vuelo;
     
-    @Column(columnDefinition="DATE")
+    @Column(columnDefinition="DATE", nullable=false)
     LocalDate fecha;
 
-    @Column(columnDefinition="TIME")
+    @Column(columnDefinition="TIME", nullable=false)
     LocalDateTime hora;
 
+    @Column(nullable=false)
     String origen;
 
-    @Column()
+    @Column(nullable=false)
     String destino;
 
-    @Column(name="plazas_totales")
+    @Column(name="plazas_totales", nullable=false)
     Integer plazasTotales;
 
-    @Column(name="plazas_turista")
+    @Column(name="plazas_turista", nullable=false)
     Integer plazasTurista;
 
     @OneToMany(targetEntity=Viaje.class, fetch=FetchType.LAZY, mappedBy="vuelo")

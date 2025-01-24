@@ -24,16 +24,23 @@ import lombok.experimental.FieldDefaults;
 @Entity
 public class Hotel {
     @Id
+    @Column(nullable=false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     Long id_hotel;
+    
+    @Column(nullable=false)
     String nombre;
 
     @Column(nullable=false)
     String direccion;
+    
+    @Column(nullable=false)
     String ciudad;
+
+    @Column(nullable=false)
     String telefono;
 
-    @Column(name="plazas_disponibles")
+    @Column(name="plazas_disponibles", nullable=false)
     Integer plazasDisponibles;
 
     @OneToMany(targetEntity=Viaje.class, fetch=FetchType.LAZY, mappedBy="hotel")
