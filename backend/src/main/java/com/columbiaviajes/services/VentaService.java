@@ -26,6 +26,11 @@ public class VentaService {
       return ventaRepository.findById(id);
   }
 
+  // Método para buscar ventas por ID de usuario
+  public List<Venta> obtenerVentasPorUsuario(Long id_usuario) {
+      return (List<Venta>) ventaRepository.buscarVentasPorUsuario(id_usuario);
+  }
+
   public void eliminarVenta(Long id) {
     ventaRepository.deleteById(id);
   }

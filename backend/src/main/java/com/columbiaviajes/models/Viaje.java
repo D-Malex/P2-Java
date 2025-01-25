@@ -56,4 +56,15 @@ public class Viaje {
 
     @Column(name = "precio", nullable = false)
     Long precio;
+
+    @Override
+    public String toString() {
+        return "Viaje{" +
+                "id_viaje=" + id_viaje +
+                ", fechaLlegada=" + fechaLlegada +
+                ", fechaRetorno=" + fechaRetorno +
+                ", precio=" + precio +
+                // Otros campos simples, pero evita las relaciones bidireccionales
+                '}';
+    }
 }

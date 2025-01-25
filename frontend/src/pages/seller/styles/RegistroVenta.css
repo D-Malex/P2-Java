@@ -1,0 +1,90 @@
+/* Contenedor principal */
+.registro-ventas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .registro-ventas-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Tabla de ventas */
+.tabla-ventas {
+  flex: 3;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.tabla th,
+.tabla td {
+  color: #333;
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.tabla th {
+  background-color: #f1f1f1;
+  color: #333;
+  font-weight: bold;
+}
+
+.tabla tr:nth-child(even) {
+  background-color: #f9f9f9;
+  
+}
+
+.tabla tr:hover {
+  background-color: #f1f1f1;
+}
+
+.sin-ventas {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+}
+
+/* Total facturado */
+.total-facturado {
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.total-facturado h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.total-facturado p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #28a745;
+}

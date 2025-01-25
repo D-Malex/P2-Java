@@ -50,7 +50,17 @@ public class VentaController {
       return ResponseEntity.ok(ventaService.obtenerVentas());
   }
 
-  @GetMapping("/{id}")
+  @GetMapping("/usuario/{id_usuario}")
+  public ResponseEntity<List<Venta>> obtenerVentasPorUsuario(@PathVariable Long id_usuario) {
+      List<Venta> ventas = ventaService.obtenerVentasPorUsuario(id_usuario);
+      System.out.println(ventas);
+      if (ventas.isEmpty()) {
+        return ResponseEntity.notFound().build();
+      }
+      return ResponseEntity.ok(ventas);
+  }
+  
+  @GetMapping("/{id_venta}")
   public ResponseEntity<Venta> obtenerVentaPorId(@PathVariable Long id) {
       return ventaService.buscarPorId(id)
           .map(ResponseEntity::ok)

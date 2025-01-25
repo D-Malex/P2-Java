@@ -17,6 +17,7 @@ import SVuelos from "../pages/seller/Vuelos";
 import SHoteles from "../pages/seller/Hoteles";
 import SPerfil from "../pages/seller/Profile";
 import SSucursal from '../pages/seller/Sucursal'
+import SRegVentas from "../pages/seller/RegistroVentas";
 /*IMPORT ADMIN PAGES*/
 import OwnerHome from "../pages/owner/Home";
 import AdminHome from "../pages/admin/AdminHome";
@@ -45,12 +46,13 @@ function AppRoutes() {
         );
       case "VENDEDOR": return (
         <>
-            <Route path="/home" element={ <ProtectedRoute>       <SHome />      </ProtectedRoute> } />
-            <Route path="/packages" element={ <ProtectedRoute>   <SPaquetes />  </ProtectedRoute> } />
-            <Route path="/flights" element={ <ProtectedRoute>    <SVuelos />    </ProtectedRoute> } />
-            <Route path="/hotels" element={ <ProtectedRoute>     <SHoteles />   </ProtectedRoute> } />
-            <Route path="/profile" element={ <ProtectedRoute>    <SPerfil />    </ProtectedRoute> } />
-            <Route path="/sucursal" element={ <ProtectedRoute>   <SSucursal />  </ProtectedRoute> } />
+            <Route path="/home" element={ <ProtectedRoute>             <SHome />      </ProtectedRoute> } />
+            <Route path="/packages" element={ <ProtectedRoute>         <SPaquetes />  </ProtectedRoute> } />
+            <Route path="/flights" element={ <ProtectedRoute>          <SVuelos />    </ProtectedRoute> } />
+            <Route path="/hotels" element={ <ProtectedRoute>           <SHoteles />   </ProtectedRoute> } />
+            <Route path="/profile" element={ <ProtectedRoute>          <SPerfil />    </ProtectedRoute> } />
+            <Route path="/sucursal" element={ <ProtectedRoute>         <SSucursal />  </ProtectedRoute> } />
+            <Route path="/registry/cells" element={ <ProtectedRoute>   <SRegVentas /> </ProtectedRoute> } />
         </>
         );
       case "TURISTA": return (

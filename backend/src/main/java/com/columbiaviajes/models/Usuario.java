@@ -56,7 +56,7 @@ public class Usuario {
     @JsonIgnore
     List<Viaje> viajes;
     
-    @ManyToOne
+    @ManyToOne(targetEntity = RoleEntity.class)
     @JoinColumn(name = "id_rol", nullable=false)
     RoleEntity rol;
 
@@ -67,5 +67,18 @@ public class Usuario {
     // Método para verificar si el usuario es vendedor
     public boolean esVendedor() {
         return this.rol != null && ERole.VENDEDOR.equals(this.rol.getNombre());
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id_usuario=" + id_usuario +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", email='" + email + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", id_sucursal=" + id_sucursal + // Si es necesario
+                '}';
     }
 }

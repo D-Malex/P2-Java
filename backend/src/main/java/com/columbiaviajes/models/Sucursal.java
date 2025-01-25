@@ -42,4 +42,14 @@ public class Sucursal {
     @OneToMany(targetEntity=Viaje.class, fetch=FetchType.LAZY, mappedBy="sucursal")
     @JsonIgnore
     List<Viaje> viajes;
+
+    @Override
+    public String toString() {
+        return "Sucursal{" +
+                "id_sucursal=" + id_sucursal +
+                ", direccion='" + direccion + 
+                ", email='" + email + 
+                ", telefono='" + telefono + 
+                '}';
+    }
 }

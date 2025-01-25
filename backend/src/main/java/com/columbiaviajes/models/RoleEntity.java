@@ -32,4 +32,12 @@ public class RoleEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<Usuario> usuarios;
+
+    @Override
+    public String toString() {
+        return "RoleEntity{" +
+                "id_rol=" + id_rol +
+                ", nombre=" + nombre + // Enum, puedes llamarlo directamente
+                '}';
+    }
 }
