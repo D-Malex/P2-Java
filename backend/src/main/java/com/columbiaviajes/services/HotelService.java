@@ -2,9 +2,7 @@ package com.columbiaviajes.services;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.stereotype.Service;
-
 import com.columbiaviajes.models.Hotel;
 import com.columbiaviajes.repositories.HotelRepository;
 
