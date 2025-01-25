@@ -29,12 +29,12 @@ function Sucursales() {
       <section className="branches">
         <div className="cards-container">
           {branches.map((branch) => (
-            <div className="card" key={branch.id_Sucursal}>
+            <div className="card" key={branch.id_sucursal}>
               <img
-                src={`sucursal${branch.id_Sucursal}.jpg`} // Suposición de imágenes nombradas por ID
-                alt={`Sucursal ${branch.id_Sucursal}`}
+                src={`sucursal${branch.id_sucursal}.jpg`} // Suposición de imágenes nombradas por ID
+                alt={`Sucursal ${branch.id_sucursal}`}
               />
-              <h3>{`Sucursal ${branch.id_Sucursal}`}</h3>
+              <h3>{`Sucursal ${branch.id_sucursal}`}</h3>
               <p>Dirección: {branch.direccion}</p>
               <p>Teléfono: {branch.telefono}</p>
               <p>Email: {branch.email}</p>
