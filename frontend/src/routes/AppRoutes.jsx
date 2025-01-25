@@ -25,17 +25,17 @@ import "./styles/index.css"
 
 
 function AppRoutes() {
-  const userType = JSON.parse(localStorage.getItem("userType"));
+  const userLogged = JSON.parse(localStorage.getItem("usuario"));
 
   // Renderizar rutas basadas en el rol del usuario
   const getHomeRoutes = () => {
-    if (!userType) {
+    if (!userLogged) {
       console.log("No se encontró un usuario autenticado.");
-      return <Route path="*" element={<Navigate to="/login" replace />} />; // Redirigir al login si no hay userType
+      return <Route path="*" element={<Navigate to="/login" replace />} />; // Redirigir al login si no hay un usuario logeado
     }
     console.log("Usuario autenticado, redireccionando...");
 
-    switch (userType.nombre) {
+    switch (userLogged.rol.nombre) {
       case "DUENIO": return (
           <Route path="/home" element={ <ProtectedRoute> <OwnerHome /> </ProtectedRoute> } />
         );
@@ -61,7 +61,7 @@ function AppRoutes() {
         </>
         );
       default:
-        console.error("ERROR: "+ userType.nombre+",no es reconocido como un rol de usuario valido.");
+        console.error("ERROR: "+ userLogged.rol.nombre +",no es reconocido como un rol de usuario valido.");
         return null; 
     }
   };

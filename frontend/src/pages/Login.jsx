@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
 import "./styles/Login.css";
 
@@ -7,19 +6,17 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await api.post("/auth/login", { email, password });
-      const { token, userType, message } = response.data;
-      //TODO: MANEJO DE ERRORES
+      const { token, usuario, message } = response.data;
 
       // Guardar token en localStorage
       localStorage.setItem("authToken", token);
-      localStorage.setItem("userType", JSON.stringify(userType)); // Guardar {id_rol, nombre}
+      localStorage.setItem("usuario", JSON.stringify(usuario));
       localStorage.setItem("email", email);
       console.info(message);
 

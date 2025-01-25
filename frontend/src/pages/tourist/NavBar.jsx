@@ -11,7 +11,7 @@ const NavBar = () => {
   const handleLogout = () => {
     // Eliminar los items del localStorage
     localStorage.removeItem("authToken"); // Cambié "token" a "authToken" para que coincida con el código de login
-    localStorage.removeItem("userType");
+    localStorage.removeItem("usuario");
     localStorage.removeItem("email");
 
     // Redirigir al login

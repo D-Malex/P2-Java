@@ -1,6 +1,6 @@
 package com.columbiaviajes.login;
 
-import com.columbiaviajes.models.RoleEntity;
+import com.columbiaviajes.models.Usuario;
 import lombok.experimental.FieldDefaults;
 import lombok.AllArgsConstructor;
 import lombok.AccessLevel;
@@ -11,6 +11,6 @@ import lombok.Data;
 @Data
 public class AuthResponse {
     String token;
-    RoleEntity userType;
+    Usuario usuario;
     String message;
 }

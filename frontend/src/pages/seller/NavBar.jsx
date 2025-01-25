@@ -9,7 +9,7 @@ const NavBar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("authToken");
-    localStorage.removeItem("userType");
+    localStorage.removeItem("usuario");
     localStorage.removeItem("email");
     navigate("/login");
   };
@@ -28,7 +28,7 @@ const NavBar = () => {
         <Link to="/hotels">Hoteles</Link>
         <Link to="/sells">Registro de ventas</Link>
         <Link to="/profile">Mi perfil</Link>
-        <Link to="/sucursal">Contacto(...)</Link>
+        <Link to="/sucursal">Contacto</Link>
       </div>
       <div className="navbar-logout">
         <button className="logout-button" onClick={handleLogout}> 

@@ -39,12 +39,12 @@ public class AuthService {
         // Generar token JWT
         String token = Jwts.builder()
             .setSubject(usuario.getEmail())
-            .claim("userType", usuario.getRol())
+            .claim("userLogged", usuario)
             .setIssuedAt(new Date())
             .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 hora de expiración
             .signWith(SECRET_KEY)
             .compact();
 
-        return new AuthResponse(token, usuario.getRol(), "Autenticación exitosa");
+        return new AuthResponse(token, usuario, "Autenticación exitosa");
     }
 }
