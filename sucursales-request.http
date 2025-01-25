@@ -1,2 +1,9 @@
+###
+
 GET http://localhost:8080/sucursales
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/sucursales/1
 Content-Type: application/json
