@@ -28,6 +28,7 @@ const Hoteles = () => {
   return (
     <div>
       <NavBar />
+      <h1>Hoteles exclusivos</h1>
       <div className="hoteles-container"> 
         {hoteles.map((hotel) => (
           <div 

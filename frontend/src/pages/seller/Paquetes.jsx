@@ -25,7 +25,7 @@ const Paquetes = () => {
   return (
     <div className="paquetes-container">
       <NavBar />
-      <h2>Paquetes de Viaje</h2>
+      <h1>Paquetes de Viaje</h1>
       {error && <p className="error-message">{error}</p>}
       <div className="paquetes-grid">
         {paquetes.map((paquete, index) => (

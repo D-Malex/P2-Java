@@ -28,6 +28,7 @@ const Vuelos = () => {
   return (
     <div>
       <NavBar />
+        <h1>Vuelos exclusivos</h1>
         <div className="vuelos-container"> 
           {vuelos.map((vuelo) => (
             <div key={vuelo.id_vuelo} className="vuelo-card" onClick={() => handleCardClick(vuelo.id_vuelo)} >
