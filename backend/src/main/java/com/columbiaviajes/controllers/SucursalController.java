@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,6 +52,19 @@ public class SucursalController {
         }
 
         return ResponseEntity.status(HttpStatus.CREATED).body(sucursalesCreadas);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Sucursal> actualizarSucursal(@PathVariable Long id, @RequestBody Sucursal sucursalActualizada) {
+        return sucursalService.buscarPorId(id)
+            .map(sucursalExistente -> {
+                sucursalExistente.setDireccion(sucursalActualizada.getDireccion());
+                sucursalExistente.setEmail(sucursalActualizada.getEmail());
+                sucursalExistente.setTelefono(sucursalActualizada.getTelefono());
+                Sucursal sucursalGuardada = sucursalService.actualizarSucursal(sucursalExistente);
+                return ResponseEntity.ok(sucursalGuardada);
+            })
+            .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping

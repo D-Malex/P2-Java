@@ -19,6 +19,13 @@ public class SucursalService {
   public Sucursal crearSucursal(Sucursal sucursal) {
       return sucursalRepository.save(sucursal);
   }
+  
+  public Sucursal actualizarSucursal(Sucursal sucursal) {
+    if (sucursalRepository.existsById(sucursal.getId_sucursal())) {
+        return sucursalRepository.save(sucursal);
+    }
+    throw new IllegalArgumentException("Sucursal no encontrada con ID: " + sucursal.getId_sucursal());
+  }
 
   public List<Sucursal> obtenerSucursales() {
       return (List<Sucursal>) sucursalRepository.findAll();
