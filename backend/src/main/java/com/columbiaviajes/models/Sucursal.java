@@ -2,7 +2,9 @@ package com.columbiaviajes.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,6 +27,12 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @Table(name="Sucursal")
 public class Sucursal {
+
+    @JsonCreator
+    public Sucursal(@JsonProperty("id_sucursal") Long id_sucursal) {
+        this.id_sucursal = id_sucursal;
+    }
+    
     @Id
     @Column(nullable=false)
     @GeneratedValue(strategy=GenerationType.IDENTITY)

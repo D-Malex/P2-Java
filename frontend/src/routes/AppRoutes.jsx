@@ -18,6 +18,7 @@ import SHoteles from "../pages/seller/Hoteles";
 import SPerfil from "../pages/seller/Profile";
 import SSucursal from '../pages/seller/Sucursal'
 import SRegVentas from "../pages/seller/RegistroVentas";
+import SVender from "../pages/seller/Vender";
 /*IMPORT ADMIN PAGES*/
 import OwnerHome from "../pages/owner/Home";
 import AdminHome from "../pages/admin/AdminHome";
@@ -53,6 +54,7 @@ function AppRoutes() {
             <Route path="/profile" element={ <ProtectedRoute>          <SPerfil />    </ProtectedRoute> } />
             <Route path="/sucursal" element={ <ProtectedRoute>         <SSucursal />  </ProtectedRoute> } />
             <Route path="/registry/sales" element={ <ProtectedRoute>   <SRegVentas /> </ProtectedRoute> } />
+            <Route path="/sales" element={ <ProtectedRoute>   <SVender /> </ProtectedRoute> } />
         </>
         );
       case "TURISTA": return (

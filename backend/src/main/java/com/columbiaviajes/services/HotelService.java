@@ -26,6 +26,10 @@ public class HotelService {
       return hotelRepository.findById(id);
   }
 
+  public List<Hotel> obtenerHotelesPorCiudad(String ciudad) {
+    return hotelRepository.findByCiudad(ciudad);
+  }
+
   public void eliminarHotel(Long id) {
       hotelRepository.deleteById(id);
   }

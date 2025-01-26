@@ -52,6 +52,15 @@ public class HotelController {
         return ResponseEntity.ok(hotelService.obtenerHoteles());
     }
 
+    @GetMapping("/")
+    public ResponseEntity<List<Hotel>> obtenerHotelesPorCiudad(@RequestParam String ciudad) {
+        List<Hotel> hoteles = hotelService.obtenerHotelesPorCiudad(ciudad);
+        if (hoteles.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(hoteles);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Hotel> obtenerHotelPorId(@PathVariable Long id) {
         return hotelService.buscarPorId(id)

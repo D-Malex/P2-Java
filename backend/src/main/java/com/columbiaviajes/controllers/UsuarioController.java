@@ -87,6 +87,15 @@ public class UsuarioController {
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
+    
+    @GetMapping("/rol/{id_rol}")
+    public ResponseEntity<List<Usuario>> obtenerUsuariosPorRol(@PathVariable Long id_rol) {
+        List<Usuario> usuarios = usuarioService.obtenerUsuariosPorRol(id_rol);
+        if (usuarios.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(usuarios);
+    }
 
     @GetMapping("/email/")
     public ResponseEntity<Usuario> obtenerUsuarioPorEmail(@RequestParam String email) {
@@ -99,8 +108,6 @@ public class UsuarioController {
     public List<String> obtenerEmail() {
         return usuarioService.obtenerEmails();
     }
-    
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminarUsuario(@PathVariable Long id) {

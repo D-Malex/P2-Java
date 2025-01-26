@@ -1,0 +1,91 @@
+/* estilos.css */
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.vender-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+select,
+input,
+button {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  outline: none;
+}
+
+select:focus,
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+button {
+  background-color: #007bff;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Section titles */
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Error and success messages */
+.error-message {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.success-message {
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  select,
+  input,
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+.input_especial {
+  background-color: rgb(18, 18, 18);
+  color: white;
+}

@@ -110,7 +110,7 @@ public class DataInitializer implements CommandLineRunner {
                 null,
                 "La Tostadita",
                 "Pora hi 456",
-                "Hawaii",
+                "Estados Unidos, Nueva York",
                 "12345678",
                 500,
                 null
@@ -119,7 +119,7 @@ public class DataInitializer implements CommandLineRunner {
                 null,
                 "El Polinautico",
                 "Sabora 123",
-                "New York",
+                "Argentina, Buenos Aires",
                 "12345678",
                 300,
                 null
@@ -128,7 +128,7 @@ public class DataInitializer implements CommandLineRunner {
                 null,
                 "HOME SUIT HOME",
                 "la pampa 789",
-                "Moscú",
+                "Irlanda, Dilaway",
                 "12345678",
                 800,
                 null
@@ -172,8 +172,8 @@ public class DataInitializer implements CommandLineRunner {
                 null,
                 LocalDate.of(2025, 3, 15),
                 LocalDateTime.now(),
-                "La plata",
-                "Nueva Zelanda",
+                "Argentina, La plata",
+                "Estados Unidos, Nueva York",
                 150,
                 130,
                 null
@@ -182,8 +182,8 @@ public class DataInitializer implements CommandLineRunner {
                 null,
                 LocalDate.of(2025, 8, 22),
                 LocalDateTime.now(),
-                "Irlanda",
-                "Buenos Aires",
+                "Irlanda, Dilaway",
+                "Argentina, Buenos Aires",
                 150,
                 130,
                 null
@@ -192,8 +192,8 @@ public class DataInitializer implements CommandLineRunner {
                 null,
                 LocalDate.of(2025, 5, 10),
                 LocalDateTime.now(),
-                "Nueva York",
-                "Inglaterra",
+                "Estados Unidos, Nueva York",
+                "Irlanda, Dilaway",
                 150,
                 130,
                 null

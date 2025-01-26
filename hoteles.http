@@ -1,0 +1,2 @@
+GET http://localhost:8080/hoteles/?ciudad=Estados Unidos, Nueva York
+Content-Type: application/json

@@ -11,6 +11,7 @@ import com.columbiaviajes.repositories.UsuarioRepository;
 
 @Service
 public class UsuarioService {
+    
     private final UsuarioRepository usuarioRepository;
 
     public UsuarioService(UsuarioRepository usuarioRepository) {
@@ -45,6 +46,10 @@ public class UsuarioService {
 
     public List<Usuario> obtenerUsuarios() {
         return (List<Usuario>) usuarioRepository.findAll();
+    }
+
+    public List<Usuario> obtenerUsuariosPorRol(Long id_rol) {
+        return (List<Usuario>) usuarioRepository.findByRol(id_rol);
     }
 
     public List<String> obtenerEmails() {
