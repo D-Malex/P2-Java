@@ -22,7 +22,9 @@ import SVender from "../pages/seller/Vender";
 /*IMPORT ADMIN PAGES*/
 import AHome from "../pages/admin/AdminHome";
 import ASucursales from "../pages/admin/Sucursales";
+import AHoteles from "../pages/admin/Hoteles";
 
+/*IMPORT OWNER PAGES*/
 import OwnerHome from "../pages/owner/Home";
 /*IMPORT CSS*/
 import "./styles/App.css"
@@ -46,8 +48,9 @@ function AppRoutes() {
         );
       case "ADMINISTRADOR": return (
         <>
-            <Route path="/home" element={ <ProtectedRoute> <AHome /> </ProtectedRoute> } />
-            <Route path="/sucursales" element={ <ProtectedRoute> <ASucursales /> </ProtectedRoute> } />
+            <Route path="/home" element={ <ProtectedRoute>        <AHome />         </ProtectedRoute> } />
+            <Route path="/sucursales" element={ <ProtectedRoute>  <ASucursales />   </ProtectedRoute> } />
+            <Route path="/hotels" element={ <ProtectedRoute>      <AHoteles />      </ProtectedRoute> } />
 
         </>
         );

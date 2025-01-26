@@ -52,6 +52,21 @@ public class HotelController {
         return ResponseEntity.ok(hotelService.obtenerHoteles());
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Hotel> actualizarSucursal(@PathVariable Long id, @RequestBody Hotel hotelActualizado) {
+        return hotelService.buscarPorId(id)
+            .map(hotelExistente -> {
+                hotelExistente.setNombre(hotelActualizado.getNombre());
+                hotelExistente.setDireccion(hotelActualizado.getDireccion());
+                hotelExistente.setCiudad(hotelActualizado.getCiudad());
+                hotelExistente.setTelefono(hotelActualizado.getTelefono());
+                hotelExistente.setPlazasDisponibles(hotelActualizado.getPlazasDisponibles());
+                Hotel hotelGuardado = hotelService.actualizarHotel(hotelExistente);
+                return ResponseEntity.ok(hotelGuardado);
+            })
+            .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping("/")
     public ResponseEntity<List<Hotel>> obtenerHotelesPorCiudad(@RequestParam String ciudad) {
         List<Hotel> hoteles = hotelService.obtenerHotelesPorCiudad(ciudad);

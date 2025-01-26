@@ -18,6 +18,13 @@ public class HotelService {
       return hotelRepository.save(hotel);
   }
 
+  public Hotel actualizarHotel(Hotel hotel) {
+    if (hotelRepository.existsById(hotel.getId_hotel())) {
+        return hotelRepository.save(hotel);
+    }
+    throw new IllegalArgumentException("Hotel no encontrada con ID: " + hotel.getId_hotel());
+  }
+
   public List<Hotel> obtenerHoteles() {
       return (List<Hotel>) hotelRepository.findAll();
   }
