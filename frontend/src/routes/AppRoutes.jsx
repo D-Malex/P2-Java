@@ -52,7 +52,7 @@ function AppRoutes() {
             <Route path="/hotels" element={ <ProtectedRoute>           <SHoteles />   </ProtectedRoute> } />
             <Route path="/profile" element={ <ProtectedRoute>          <SPerfil />    </ProtectedRoute> } />
             <Route path="/sucursal" element={ <ProtectedRoute>         <SSucursal />  </ProtectedRoute> } />
-            <Route path="/registry/cells" element={ <ProtectedRoute>   <SRegVentas /> </ProtectedRoute> } />
+            <Route path="/registry/sales" element={ <ProtectedRoute>   <SRegVentas /> </ProtectedRoute> } />
         </>
         );
       case "TURISTA": return (

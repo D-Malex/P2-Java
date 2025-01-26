@@ -22,11 +22,11 @@ const NavBar = () => {
 
       <div className="navbar-links">
         <Link to="/home">Inicio</Link>
-        <Link to="/sells">Vender</Link>
+        <Link to="/sales">Vender</Link>
         <Link to="/packages">Paquetes</Link>
         <Link to="/flights">Vuelos</Link>
         <Link to="/hotels">Hoteles</Link>
-        <Link to="/registry/cells">Registro de ventas</Link>
+        <Link to="/registry/sales">Registro de ventas</Link>
         <Link to="/profile">Mi perfil</Link>
         <Link to="/sucursal">Contacto</Link>
       </div>
