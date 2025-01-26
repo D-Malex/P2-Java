@@ -20,9 +20,9 @@ const Vuelos = () => {
       .catch((error) => console.error("Error al obtener los vuelos:", error));
   }, []);
 
-  const handleCardClick = (vueloId) => {
+  const handleCardClick = () => {
     // Redirige a la página /sells con el id del vuelo
-    navigate(`/sells/${vueloId}`);
+    navigate(`/sales`);
   };
 
   return (

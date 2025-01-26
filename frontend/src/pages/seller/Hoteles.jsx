@@ -20,9 +20,9 @@ const Hoteles = () => {
       .catch((error) => console.error("Error al obtener los hoteles:", error));
   }, []);
 
-  const handleCardClick = (hotelId) => {
+  const handleCardClick = () => {
     // Redirige a la página /hotels con el id del hotel
-    navigate(`/hotels/${hotelId}`);
+    navigate(`/sales`);
   };
 
   return (

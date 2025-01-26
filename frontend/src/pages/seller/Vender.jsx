@@ -7,6 +7,7 @@ import "./styles/Vender.css";
 const Vender = () => {
   const [vuelos, setVuelos] = useState([]);
   const [hoteles, setHoteles] = useState([]);
+  const [sucursal, setSucursal] = useState(null);
   const [usuarios, setUsuarios] = useState([]);
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
   const [vueloSeleccionado, setVueloSeleccionado] = useState(null);
@@ -16,8 +17,17 @@ const Vender = () => {
   const [fechaRetorno, setFechaRetorno] = useState("");
   const [precio, setPrecio] = useState(0);
 
-  // Datos del vendedor
-  const vendedor = JSON.parse(localStorage.getItem("usuario")); 
+  const vendedor = JSON.parse(localStorage.getItem("usuario"));
+  
+  useEffect(() => {
+    const fetchSucursal = async () => {
+        const vendedor = JSON.parse(localStorage.getItem("usuario"));
+        const response = await api.get(`/sucursales/${vendedor.id_sucursal}`);
+        setSucursal(response.data);
+    };
+
+    fetchSucursal();
+}, []);
 
   // Obtener todos los vuelos disponibles
   useEffect(() => { 
@@ -68,10 +78,10 @@ const Vender = () => {
   };
 
   const handleVender = () => {
-    if (!usuarioSeleccionado || !vueloSeleccionado || !hotelSeleccionado || !fechaRetorno) {
-      alert("Por favor complete todos los campos antes de vender.");
+    if (!usuarioSeleccionado?.id_usuario || !vueloSeleccionado?.id_vuelo || !hotelSeleccionado?.id_hotel || !sucursal?.id_sucursal) {
+      alert("Algunos datos esenciales no están seleccionados. Verifica la información ingresada.");
       return;
-    }
+  }
 
     const fechaActual = new Date();
     const fechaInicio = new Date(vueloSeleccionado.fecha);
@@ -86,30 +96,28 @@ const Vender = () => {
       return;
     }
 
-    const sucursal = api.get(`/sucursales/${vendedor.id_sucursal}`);
 
     // Crear el viaje
     const viaje = {
-      id_viaje: null,
-      sucursal: sucursal,
-      usuario: usuarioSeleccionado,
-      hotel: hotelSeleccionado,
+      sucursal: sucursal, // Solo ID
+      usuario: usuarioSeleccionado, // Solo ID
+      hotel: hotelSeleccionado, // Solo ID
       pensionHotel: pension,
-      vuelo: vueloSeleccionado,
+      vuelo: vueloSeleccionado, // Solo ID
       claseVuelo,
       fechaLlegada: vueloSeleccionado.fecha,
       fechaRetorno,
       precio,
-    };
+  };
 
     api.post("/viajes/new", viaje).then((viajeResponse) => {
       // Crear la venta asociada al viaje
       const venta = {
-        id_venta: null,
         vendedor,
         viaje: viajeResponse.data,
         fechaVenta: new Date().toISOString(),
       };
+      console.log("Viaje creado" + viaje);
 
       api.post("/ventas/new", venta).then(() => {
         alert("Venta realizada exitosamente");

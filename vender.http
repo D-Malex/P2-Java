@@ -1,0 +1,117 @@
+GET http://localhost:8080/viajes 
+Content-Type: application/json
+
+
+###
+
+POST http://localhost:8080/viajes/new 
+Content-Type: application/json
+
+{
+  "id_viaje":null,
+  "sucursal": {
+    "id_sucursal": 1,
+    "direccion": "Diagonal 456",
+    "email": "cv.laplata@gmail.com",
+    "telefono": "12345678"
+  },
+  "usuario": {
+    "id_usuario": 4,
+    "nombre": "Zulma",
+    "apellido": "Acosta",
+    "email": "zulmi@gmail.com",
+    "psw": "1234",
+    "direccion": "Puesdon Demas 123",
+    "telefono": "12345678",
+    "rol": { "id_rol": 4, "nombre": "TURISTA" },
+    "id_sucursal": null
+  },
+  "hotel": {
+    "id_hotel": 4,
+    "nombre": "La Tostadita",
+    "direccion": "Pora hi 456",
+    "ciudad": "Estados Unidos, Nueva York",
+    "telefono": "12345678",
+    "plazasDisponibles": 500
+  },
+  "pensionHotel": "MEJOR",
+  "vuelo": {
+    "id_vuelo": 4,
+    "fecha": "2025-03-15",
+    "hora": "1970-01-01T01:30:50",
+    "origen": "Argentina, La plata",
+    "destino": "Estados Unidos, Nueva York",
+    "plazasTotales": 150,
+    "plazasTurista": 130
+  },
+  "claseVuelo": "PRIMERA",
+  "fechaLlegada": "2025-03-15",
+  "fechaRetorno": "2025-06-30",
+  "precio": 5000
+}
+
+### 
+
+POST http://localhost:8080/ventas/new 
+Content-Type: application/json
+
+{
+  "id_venta":null,
+  "vendedor": {
+    "id_usuario": 3,
+    "nombre": "Lilia",
+    "apellido": "Mallo",
+    "email": "lili@gmail.com",
+    "psw": "1234",
+    "direccion": "Po raca 123",
+    "telefono": "12345678",
+    "rol": { "id_rol": 3, "nombre": "VENDEDOR"},
+    "id_sucursal": 1
+  },
+  "viaje": {
+    "id_viaje": 2,
+    "sucursal": {
+      "id_sucursal": 1,
+      "direccion": "Diagonal 456",
+      "email": "cv.laplata@gmail.com",
+      "telefono": "12345678"
+    },
+    "usuario": {
+      "id_usuario": 4,
+      "nombre": "Zulma",
+      "apellido": "Acosta",
+      "email": "zulmi@gmail.com",
+      "psw": "1234",
+      "direccion": "Puesdon Demas 123",
+      "telefono": "12345678",
+      "rol": {
+        "id_rol": 4,
+        "nombre": "TURISTA"
+      },
+      "id_sucursal": null
+    },
+    "hotel": {
+      "id_hotel": 4,
+      "nombre": "La Tostadita",
+      "direccion": "Pora hi 456",
+      "ciudad": "Estados Unidos, Nueva York",
+      "telefono": "12345678",
+      "plazasDisponibles": 500
+    },
+    "pensionHotel": "MEJOR",
+    "vuelo": {
+      "id_vuelo": 4,
+      "fecha": "2025-03-15",
+      "hora": "1970-01-01T01:30:50",
+      "origen": "Argentina, La plata",
+      "destino": "Estados Unidos, Nueva York",
+      "plazasTotales": 150,
+      "plazasTurista": 130
+    },
+    "claseVuelo": "PRIMERA",
+    "fechaLlegada": "2025-03-15",
+    "fechaRetorno": "2025-06-30",
+    "precio": 5000
+  },
+  "fecha_venta": "2025-05-02"
+}
