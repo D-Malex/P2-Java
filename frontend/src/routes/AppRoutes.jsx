@@ -23,7 +23,8 @@ import SVender from "../pages/seller/Vender";
 import AHome from "../pages/admin/AdminHome";
 import ASucursales from "../pages/admin/Sucursales";
 import AHoteles from "../pages/admin/Hoteles";
-
+import AProfile from "../pages/admin/Profile";
+//import AVuelos from "../pages/admin/Vuelos";
 /*IMPORT OWNER PAGES*/
 import OwnerHome from "../pages/owner/Home";
 /*IMPORT CSS*/
@@ -51,7 +52,8 @@ function AppRoutes() {
             <Route path="/home" element={ <ProtectedRoute>        <AHome />         </ProtectedRoute> } />
             <Route path="/sucursales" element={ <ProtectedRoute>  <ASucursales />   </ProtectedRoute> } />
             <Route path="/hotels" element={ <ProtectedRoute>      <AHoteles />      </ProtectedRoute> } />
-
+            <Route path="/profile" element={ <ProtectedRoute>     <AProfile />      </ProtectedRoute> } />
+            
         </>
         );
       case "VENDEDOR": return (
@@ -63,7 +65,7 @@ function AppRoutes() {
             <Route path="/profile" element={ <ProtectedRoute>          <SPerfil />    </ProtectedRoute> } />
             <Route path="/sucursal" element={ <ProtectedRoute>         <SSucursal />  </ProtectedRoute> } />
             <Route path="/registry/sales" element={ <ProtectedRoute>   <SRegVentas /> </ProtectedRoute> } />
-            <Route path="/sales" element={ <ProtectedRoute>   <SVender /> </ProtectedRoute> } />
+            <Route path="/sales" element={ <ProtectedRoute>            <SVender />    </ProtectedRoute> } />
         </>
         );
       case "TURISTA": return (

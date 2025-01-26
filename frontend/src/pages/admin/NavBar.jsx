@@ -26,6 +26,7 @@ const NavBar = () => {
         <Link to="/hotels"><b>Hoteles</b></Link>
         <Link to="/flights"><b>Vuelos</b></Link>
         <Link to="/sellers"><b>Vendedores</b></Link>
+        <Link to="/profile"><b>Perfil</b></Link>
       </div>
       <div id="navbar-logout">
         <button id="logout-button" onClick={handleLogout}> 
