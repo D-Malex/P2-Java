@@ -30,6 +30,8 @@ import AVendedores from "../pages/admin/Vendedores";
 import OHome from "../pages/owner/Home";
 import OProfile from "../pages/owner/Profile";
 import OSucursales from "../pages/owner/Surusales";
+import OVuelos from "../pages/owner/Hoteles";
+import OHoteles from "../pages/owner/Vuelos";
 /*IMPORT CSS*/
 import "./styles/App.css"
 import "./styles/index.css"
@@ -52,6 +54,8 @@ function AppRoutes() {
             <Route path="/home" element={ <ProtectedRoute>        <OHome />         </ProtectedRoute> } />
             <Route path="/profile" element={ <ProtectedRoute>     <OProfile />      </ProtectedRoute> } />
             <Route path="/sucursales" element={ <ProtectedRoute>  <OSucursales />   </ProtectedRoute> } />
+            <Route path="/flights" element={ <ProtectedRoute>     <OVuelos />       </ProtectedRoute> } />
+            <Route path="/hotels" element={ <ProtectedRoute>      <OHoteles />      </ProtectedRoute> } />
         </>
         );
       case "ADMINISTRADOR": return (
