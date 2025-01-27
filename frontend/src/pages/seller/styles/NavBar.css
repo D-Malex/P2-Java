@@ -16,7 +16,7 @@
   justify-content: flex-end; 
 }
 
-.logout-button {
+#logout-button {
   background: none;
   border: none;
   color: #333;
@@ -30,7 +30,7 @@
 }
 
 /* Efecto hover en el botón de logout */
-.logout-button:hover {
+#logout-button:hover {
   color: #ff4d4d;  /* Color rojo cuando se pasa el mouse */
 }
 

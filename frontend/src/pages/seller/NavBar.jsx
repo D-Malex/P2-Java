@@ -21,17 +21,17 @@ const NavBar = () => {
       </div>
 
       <div className="navbar-links">
-        <Link to="/home">Inicio</Link>
-        <Link to="/sales">Vender</Link>
-        <Link to="/packages">Paquetes</Link>
-        <Link to="/flights">Vuelos</Link>
-        <Link to="/hotels">Hoteles</Link>
-        <Link to="/registry/sales">Registro de ventas</Link>
-        <Link to="/profile">Mi perfil</Link>
-        <Link to="/sucursal">Contacto</Link>
+        <Link to="/home"><b>Inicio</b></Link>
+        <Link to="/sales"><b>Vender</b></Link>
+        <Link to="/packages"><b>Paquetes</b></Link>
+        <Link to="/flights"><b>Vuelos</b></Link>
+        <Link to="/hotels"><b>Hoteles</b></Link>
+        <Link to="/registry/sales"><b>Registro de ventas</b></Link>
+        <Link to="/profile"><b>Mi perfil</b></Link>
+        <Link to="/sucursal"><b>Contacto</b></Link>
       </div>
-      <div className="navbar-logout">
-        <button className="logout-button" onClick={handleLogout}> 
+      <div id="navbar-logout">
+        <button id="logout-button" onClick={handleLogout}> 
           <FaSignOutAlt size={20} />
         </button>
       </div>

@@ -27,14 +27,14 @@ const NavBar = () => {
       </div>
 
       <div className="navbar-links">
-        <Link to="/home">Inicio</Link>
-        <Link to="/trips">Mis viajes</Link>
-        <Link to="/profile">Perfil</Link>
-        <Link to="/about-us">Nosotros</Link>
-        <Link to="/sucursales">Contacto</Link>
+        <Link to="/home"><b>Inicio</b></Link>
+        <Link to="/trips"><b>Mis viajes</b></Link>
+        <Link to="/profile"><b>Perfil</b></Link>
+        <Link to="/about-us"><b>Nosotros</b></Link>
+        <Link to="/sucursales"><b>Contacto</b></Link>
       </div>
-      <div className="navbar-logout">
-        <button className="logout-button" onClick={handleLogout}> 
+      <div id="navbar-logout">
+        <button id="logout-button" onClick={handleLogout}> 
           <FaSignOutAlt size={20} />
         </button>
       </div>
