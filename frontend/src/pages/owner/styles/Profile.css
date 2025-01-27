@@ -1,0 +1,56 @@
+.profile-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-card {
+  display: inline-block;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  text-align: left;
+}
+
+.profile-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.profile-card p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.profile-card strong {
+  color: #333;
+  padding-top: 8px;
+  text-align: center;
+  justify-content: center;
+}
+
+button.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+button.active {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
+input {
+  background-color: white;
+  border: white;
+  color: #333;
+  
+}
+
+label {
+  display: flex;
+}
