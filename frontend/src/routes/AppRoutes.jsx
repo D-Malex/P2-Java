@@ -29,6 +29,7 @@ import AVendedores from "../pages/admin/Vendedores";
 /*IMPORT OWNER PAGES*/
 import OHome from "../pages/owner/Home";
 import OProfile from "../pages/owner/Profile";
+import OSucursales from "../pages/owner/Surusales";
 /*IMPORT CSS*/
 import "./styles/App.css"
 import "./styles/index.css"
@@ -48,8 +49,9 @@ function AppRoutes() {
     switch (userLogged.rol.nombre) {
       case "DUENIO": return (
         <>
-            <Route path="/home" element={ <ProtectedRoute> <OHome /> </ProtectedRoute> } />
-            <Route path="/profile" element={ <ProtectedRoute> <OProfile /> </ProtectedRoute> } />
+            <Route path="/home" element={ <ProtectedRoute>        <OHome />         </ProtectedRoute> } />
+            <Route path="/profile" element={ <ProtectedRoute>     <OProfile />      </ProtectedRoute> } />
+            <Route path="/sucursales" element={ <ProtectedRoute>  <OSucursales />   </ProtectedRoute> } />
         </>
         );
       case "ADMINISTRADOR": return (
