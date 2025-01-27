@@ -20,6 +20,13 @@ public class VueloService {
       return vueloRepository.save(vuelo);
   }
 
+  public Vuelo actualizarVuelo(Vuelo vuelo) {
+    if (vueloRepository.existsById(vuelo.getId_vuelo())) {
+        return vueloRepository.save(vuelo);
+    }
+    throw new IllegalArgumentException("Vuelo no encontrada con ID: " + vuelo.getId_vuelo());
+  }
+
   public List<Vuelo> obtenerVuelos() {
       return (List<Vuelo>) vueloRepository.findAll();
   }

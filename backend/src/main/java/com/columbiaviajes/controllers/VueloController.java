@@ -47,6 +47,22 @@ public class VueloController {
         return ResponseEntity.status(HttpStatus.CREATED).body(vuelosCreados);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Vuelo> actualizarSucursal(@PathVariable Long id, @RequestBody Vuelo vueloActualizado) {
+        return vueloService.buscarPorId(id)
+            .map(vueloExistente -> {
+                vueloExistente.setFecha(vueloActualizado.getFecha());
+                vueloExistente.setHora(vueloActualizado.getHora());
+                vueloExistente.setOrigen(vueloActualizado.getOrigen());
+                vueloExistente.setDestino(vueloActualizado.getDestino());
+                vueloExistente.setPlazasTotales(vueloActualizado.getPlazasTotales());
+                vueloExistente.setPlazasTurista(vueloActualizado.getPlazasTurista());
+                Vuelo vueloGuardado = vueloService.actualizarVuelo(vueloExistente);
+                return ResponseEntity.ok(vueloGuardado);
+            })
+            .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping
     public ResponseEntity<List<Vuelo>> obtenerVuelos() {
         return ResponseEntity.ok(vueloService.obtenerVuelos());

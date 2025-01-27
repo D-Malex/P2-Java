@@ -3,7 +3,7 @@ package com.columbiaviajes.components;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import com.columbiaviajes.models.ERole;
 import com.columbiaviajes.models.RoleEntity;
@@ -171,7 +171,7 @@ public class DataInitializer implements CommandLineRunner {
             vueloRepository.save(new Vuelo(
                 null,
                 LocalDate.of(2025, 3, 15),
-                LocalDateTime.now(),
+                LocalTime.now(),
                 "Argentina, La plata",
                 "Estados Unidos, Nueva York",
                 150,
@@ -181,7 +181,7 @@ public class DataInitializer implements CommandLineRunner {
             vueloRepository.save(new Vuelo(
                 null,
                 LocalDate.of(2025, 8, 22),
-                LocalDateTime.now(),
+                LocalTime.now(),
                 "Irlanda, Dilaway",
                 "Argentina, Buenos Aires",
                 150,
@@ -191,7 +191,7 @@ public class DataInitializer implements CommandLineRunner {
             vueloRepository.save(new Vuelo(
                 null,
                 LocalDate.of(2025, 5, 10),
-                LocalDateTime.now(),
+                LocalTime.now(),
                 "Estados Unidos, Nueva York",
                 "Irlanda, Dilaway",
                 150,

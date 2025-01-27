@@ -1,0 +1,11 @@
+POST http://localhost:8080/vuelos/new
+Content-Type: application/json
+
+{
+  "fecha": "2025-26-02",
+  "hora":"11:01",
+  "origen": "Argentina, La Plata",
+  "destino": "Irlanda, Dilaway",
+  "plazasTotales": 200,
+  "plazasTurista": 22
+}

@@ -1,9 +1,10 @@
 package com.columbiaviajes.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -33,8 +34,9 @@ public class Vuelo {
     @Column(columnDefinition="DATE", nullable=false)
     LocalDate fecha;
 
+    @JsonFormat(pattern = "HH:mm")
     @Column(columnDefinition="TIME", nullable=false)
-    LocalDateTime hora;
+    LocalTime hora;
 
     @Column(nullable=false)
     String origen;
