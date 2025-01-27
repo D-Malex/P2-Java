@@ -25,6 +25,7 @@ import ASucursales from "../pages/admin/Sucursales";
 import AHoteles from "../pages/admin/Hoteles";
 import AProfile from "../pages/admin/Profile";
 import AVuelos from "../pages/admin/Vuelos";
+import AVendedores from "../pages/admin/Vendedores";
 /*IMPORT OWNER PAGES*/
 import OwnerHome from "../pages/owner/Home";
 /*IMPORT CSS*/
@@ -53,8 +54,8 @@ function AppRoutes() {
             <Route path="/sucursales" element={ <ProtectedRoute>  <ASucursales />   </ProtectedRoute> } />
             <Route path="/hotels" element={ <ProtectedRoute>      <AHoteles />      </ProtectedRoute> } />
             <Route path="/profile" element={ <ProtectedRoute>     <AProfile />      </ProtectedRoute> } />
-            <Route path="/flights" element={ <ProtectedRoute>     <AVuelos />      </ProtectedRoute> } />
-            
+            <Route path="/flights" element={ <ProtectedRoute>     <AVuelos />       </ProtectedRoute> } />
+            <Route path="/sellers" element={ <ProtectedRoute>     <AVendedores />   </ProtectedRoute> } />
         </>
         );
       case "VENDEDOR": return (

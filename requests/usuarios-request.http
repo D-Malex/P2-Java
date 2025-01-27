@@ -59,7 +59,8 @@ Content-Type: application/json
     "psw": "12345",
     "direccion": "asasdf",
     "telefono": "1234567890",
-    "rol": { "id_rol": 4 }
+    "rol": { "id_rol": 3 },
+    "id_sucursal": 1
 }
 
 ###
