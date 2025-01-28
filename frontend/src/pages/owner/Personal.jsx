@@ -18,10 +18,11 @@ const Personal = () => {
     direccion: "",
     telefono: "",
     id_sucursal: null,
-    rol: { id_rol: parseFloat(rolSeleccionado, 10) },
+    rol: { id_rol: parseInt(rolSeleccionado, 10) },
   });
 
   useEffect(() => {
+    setNewUsuario((prev) => ({ ...prev, rol: { id_rol: parseInt(rolSeleccionado, 10) }, }));
     fetchUsuarios();
     fetchSucursales();
   }, [rolSeleccionado]);
@@ -58,7 +59,7 @@ const Personal = () => {
         direccion: "",
         telefono: "",
         id_sucursal: null,
-        rol: { id_rol: parseFloat(rolSeleccionado, 10) },
+        rol: { id_rol: parseInt(rolSeleccionado, 10) },
       });
     } catch (error) {
       console.error("Error creating usuario:", error);
@@ -152,7 +153,7 @@ const Personal = () => {
                     {rolSeleccionado === "3" && (
                       <td>
                         <select value={editingUsuario.id_sucursal || ""}
-                          onChange={(e) => setEditingUsuario({ ...editingUsuario, id_sucursal: parseFloat(e.target.value, 10),})}
+                          onChange={(e) => setEditingUsuario({ ...editingUsuario, id_sucursal: parseInt(e.target.value, 10),})}
                         >
                           {sucursales.map((sucursal) => (
                             <option key={sucursal.id_sucursal} value={sucursal.id_sucursal}>
@@ -181,7 +182,7 @@ const Personal = () => {
                         {
                           sucursales.find(
                             (sucursal) => sucursal.id_sucursal === usuario.id_sucursal
-                          )?.direccion || "Sin sucursal"
+                          )?.direccion || null
                         }
                       </td>
                     )}
@@ -221,7 +222,7 @@ const Personal = () => {
           />
           {rolSeleccionado === "3" && (
             <select value={newUsuario.id_sucursal || ""}
-              onChange={(e) => setNewUsuario({ ...newUsuario, id_sucursal: parseFloat(e.target.value, 10),})}
+              onChange={(e) => setNewUsuario({ ...newUsuario, id_sucursal: parseInt(e.target.value, 10),})}
             >
               <option value="" disabled>Seleccione sucursal</option>
                 {sucursales.map((sucursal) => (
