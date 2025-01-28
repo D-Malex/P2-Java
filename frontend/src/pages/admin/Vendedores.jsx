@@ -119,10 +119,26 @@ const Vendedores = () => {
                 {editingVendedor?.id_usuario === vendedor.id_usuario ? (
                   <>
                     <td>{vendedor.id_usuario}</td>
-                    <td>{vendedor.nombre}</td>
-                    <td>{vendedor.apellido}</td>
-                    <td>{vendedor.email}</td>
-                    <td>{vendedor.telefono}</td>
+                    <td>
+                      <input type="text" value={editingVendedor.nombre || ""}
+                        onChange={(e) => setEditingVendedor({ ...editingVendedor, nombre: e.target.value })}
+                      />
+                    </td>
+                    <td>
+                      <input type="text" value={editingVendedor.apellido || ""}
+                        onChange={(e) => setEditingVendedor({ ...editingVendedor, apellido: e.target.value })}
+                      />
+                    </td>
+                    <td>
+                      <input type="email" value={editingVendedor.email || ""}
+                        onChange={(e) => setEditingVendedor({ ...editingVendedor, email: e.target.value })}
+                      />
+                    </td>
+                    <td>
+                      <input type="text" value={editingVendedor.telefono || ""}
+                        onChange={(e) => setEditingVendedor({ ...editingVendedor, telefono: e.target.value })}
+                      />
+                    </td>
                     <td>
                       <select
                         value={editingVendedor.id_sucursal}
