@@ -34,9 +34,6 @@ import OVuelos from "../pages/owner/Hoteles";
 import OHoteles from "../pages/owner/Vuelos";
 import OPersonal from "../pages/owner/Personal";
 import ORegistrySales from "../pages/owner/RegistroVentas";
-/*IMPORT CSS*/
-import "./styles/App.css"
-import "./styles/index.css"
 
 
 function AppRoutes() {
@@ -53,13 +50,13 @@ function AppRoutes() {
     switch (userLogged.rol.nombre) {
       case "DUENIO": return (
         <>
-            <Route path="/home" element={ <ProtectedRoute>        <OHome />         </ProtectedRoute> } />
-            <Route path="/profile" element={ <ProtectedRoute>     <OProfile />      </ProtectedRoute> } />
-            <Route path="/sucursales" element={ <ProtectedRoute>  <OSucursales />   </ProtectedRoute> } />
-            <Route path="/flights" element={ <ProtectedRoute>     <OVuelos />       </ProtectedRoute> } />
-            <Route path="/hotels" element={ <ProtectedRoute>      <OHoteles />      </ProtectedRoute> } />
-            <Route path="/personel" element={ <ProtectedRoute>    <OPersonal />     </ProtectedRoute> } />
-            <Route path="/registry/sales" element={ <ProtectedRoute>    <ORegistrySales /></ProtectedRoute> } />
+            <Route path="/home" element={ <ProtectedRoute>            <OHome />           </ProtectedRoute> } />
+            <Route path="/profile" element={ <ProtectedRoute>         <OProfile />        </ProtectedRoute> } />
+            <Route path="/sucursales" element={ <ProtectedRoute>      <OSucursales />     </ProtectedRoute> } />
+            <Route path="/flights" element={ <ProtectedRoute>         <OVuelos />         </ProtectedRoute> } />
+            <Route path="/hotels" element={ <ProtectedRoute>          <OHoteles />        </ProtectedRoute> } />
+            <Route path="/personel" element={ <ProtectedRoute>        <OPersonal />       </ProtectedRoute> } />
+            <Route path="/registry/sales" element={ <ProtectedRoute>  <ORegistrySales />  </ProtectedRoute> } />
         </>
         );
       case "ADMINISTRADOR": return (

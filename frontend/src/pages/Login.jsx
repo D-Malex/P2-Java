@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../utils/api";
 import "./styles/Login.css";
 
@@ -7,6 +7,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  useEffect(()=>{document.body.classList.add("login-page");},[]); //DESABILITAMOS EL SCROLL
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -18,6 +20,9 @@ const Login = () => {
       localStorage.setItem("usuario", JSON.stringify(usuario));
       localStorage.setItem("email", email);
       console.info(message);
+
+      document.body.classList.remove("login-page");
+      document.body.style.overflow = "auto";
       window.location.href = '/home';
 
     } catch (err) {
