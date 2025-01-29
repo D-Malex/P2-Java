@@ -14,14 +14,12 @@ const Login = () => {
       const response = await api.post("/auth/login", { email, password });
       const { token, usuario, message } = response.data;
 
-      // Guardar token en localStorage
       localStorage.setItem("authToken", token);
       localStorage.setItem("usuario", JSON.stringify(usuario));
       localStorage.setItem("email", email);
       console.info(message);
-
       window.location.href = '/home';
-      
+
     } catch (err) {
       console.error("Fallo en la autenticacion. " + err);
       setError("Fallo en la autenticacion. Por favor, intenta de nuevo.");
@@ -30,25 +28,21 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-form">
+      <div className="login-box"> 
+        <img src="../../public/columbia-viajesv2.png" alt="columbia-viajes.png not found..." className="logo"/>
         <h2>Iniciar Sesión</h2>
-        {error && <p className="error-message">{error}</p>}
-        <input
-          type="email"
-          placeholder="Correo Electrónico"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Iniciar Sesión</button>
+        <form onSubmit={handleSubmit} className="login-form">
+          {error && <p className="error-message">{error}</p>}
+          <input type="email" placeholder="Correo Electrónico" value={email} 
+            onChange={(e) => setEmail(e.target.value)} required
+          />
+          <input type="password" placeholder="Contraseña" value={password} 
+            onChange={(e) => setPassword(e.target.value)} required
+          />
+        <button type="submit">Entrar</button>
       </form>
+      </div>
+      <div className="image-container"></div>
     </div>
   );
 };
