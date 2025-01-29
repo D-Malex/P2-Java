@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../tourist/NavBar";
-import Footer from "../Footer";
 import api from "../../utils/api";
 import "./styles/Viajes.css";
 
@@ -31,7 +29,6 @@ const Viajes = () => {
 
   return (
     <div>
-      <NavBar />
       <h1>Lista de Viajes</h1>
       <div className="viajes-container">
         {viajes.map((viaje) => (
@@ -57,7 +54,6 @@ const Viajes = () => {
           </div>
         ))}
       </div>
-      <Footer />
     </div>
   );
 };

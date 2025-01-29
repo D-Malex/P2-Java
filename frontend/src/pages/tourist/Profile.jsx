@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
-import Footer from "../Footer";
-import NavBar from "./NavBar";
 import "./styles/Profile.css";
 
 const Profile = () => {
@@ -67,7 +65,6 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <NavBar />
       <h1>Perfil de Usuario</h1>
       <div className="profile-card">
         <form>
@@ -136,7 +133,6 @@ const Profile = () => {
           </div>
         </form>
       </div>
-      <Footer />
     </div>
   );
 };

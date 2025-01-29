@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
 import api from "../../utils/api";
 import "./styles/Sucursales.css"; 
 
@@ -22,7 +20,6 @@ function Sucursales() {
 
   return (
     <div className="sucursal-container">
-      <NavBar /> {/* Mostramos la barra de navegación */}
       <header className="sucursal-header">
         <h1>¿Dónde podés encontrarnos?</h1>
       </header>
@@ -42,7 +39,6 @@ function Sucursales() {
           ))}
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

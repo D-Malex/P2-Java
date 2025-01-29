@@ -1,30 +1,28 @@
-import React, { useEffect, useState } from "react"; // Agregar los hooks necesarios
-import NavBar from "./NavBar";
-import Footer from "../Footer";
+import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
 import "./styles/Home.css";
 
 function Home() {
-  const [branches, setBranches] = useState([]); // Estado para las sucursales
+  const [branches, setBranches] = useState([]);
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
 
   useEffect(() => {
     const fetchBranches = async () => {
       try {
-        const response = await api.get("/sucursales"); // Llamada a la API
-        setBranches(response.data.slice(0, 3)); // Seleccionar las primeras 3 sucursales
+        const response = await api.get("/sucursales");
+        setBranches(response.data.slice(0, 3));
       } catch (error) {
         console.error("Error al cargar las sucursales:", error);
       }
     };
 
     fetchBranches();
-  }, []); // [] para que se ejecute solo una vez
+  }, []);
 
   return (
-    <div className="container">
-      <NavBar />
+    <>
       <div className="hero-section">
-        <h1 className="hero-title">Welcome, TOURIST</h1>
+        <h1 className="hero-title">Hola, {usuario.nombre}</h1>
       </div>
 
       <section className="about-us">
@@ -58,8 +56,7 @@ function Home() {
           Ver más sucursales
         </button>
       </section>
-      <Footer />
-    </div>
+    </>
   );
 }
 

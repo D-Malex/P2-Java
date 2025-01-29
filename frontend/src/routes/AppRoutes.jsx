@@ -5,6 +5,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 /*IMPORT TOURIST PAGES*/
+import TLayout from "../pages/tourist/Layout";
 import THome from "../pages/tourist/Home";
 import TPerfil from "../pages/tourist/Profile";
 import TSucursal from "../pages/tourist/Sucursales";
@@ -83,11 +84,13 @@ function AppRoutes() {
         );
       case "TURISTA": return (
         <>
+          <Route element={<TLayout />}>
             <Route path="/home" element={       <ProtectedRoute> <THome />      </ProtectedRoute> } />
             <Route path="/profile" element={    <ProtectedRoute> <TPerfil />    </ProtectedRoute> } />
             <Route path="/sucursales" element={ <ProtectedRoute> <TSucursal />  </ProtectedRoute> } />
             <Route path="/trips" element={      <ProtectedRoute> <TViajes />    </ProtectedRoute> } />
             <Route path="/about-us" element={   <ProtectedRoute> <TNosotros />  </ProtectedRoute> } />
+          </Route>
         </>
         );
       default:

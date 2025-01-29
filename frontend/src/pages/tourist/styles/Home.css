@@ -1,8 +1,8 @@
 .hero-section {
-  background-image: url("ruta-de-la-imagen.jpg");
+  background-image: url("../../../assets/portada-turist.jpeg");
   background-size: cover;
   background-position: center;
-  height: 400px;
+  height: 550px;
   display: flex;
   align-items: center;
   justify-content: center;
