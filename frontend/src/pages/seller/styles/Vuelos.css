@@ -1,13 +1,20 @@
-/* Contenedor de las cards */
+#seller-vuelos-title {
+  margin-top: 80px;
+  font-size: 8vw;
+  color: darkblue;
+}
+
 .vuelos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
   padding: 16px;
   margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  color: #333;
+  justify-content: center;
+  padding-bottom: 44px;
 }
 
-/* Estilo de cada card */
 .vuelo-card {
   background-color: #fff;
   border-radius: 16px;
@@ -22,7 +29,6 @@
   transform: translateY(-5px);
 }
 
-/* Título de la card */
 .vuelo-card h3 {
   font-size: 20px;
   font-weight: bold;
@@ -30,24 +36,15 @@
   margin-bottom: 12px;
 }
 
-/* Detalles de la card */
 .vuelo-card p {
   font-size: 16px;
   color: #555;
   margin-bottom: 8px;
 }
 
-/* Tercer nivel de detalles */
 .vuelo-card p:last-child {
   font-weight: bold;
   color: #1a73e8;
-}
-
-/* Estilo general de contenedor */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
 }
 
 /* Medios para pantallas más pequeñas */

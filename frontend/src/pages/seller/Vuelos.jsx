@@ -8,35 +8,25 @@ const Vuelos = () => {
   const navigate = useNavigate();
 
   useEffect(() => { 
-    // Realizamos la petición para obtener los vuelos
-    api.get("/vuelos")
-      .then((response) => {
-        // Si la respuesta tiene una propiedad de datos
-        return response.data ? response.data : response;  // Asegúrate de que 'response.data' es el formato esperado
-      })
+    api.get("/vuelos").then((response) => {return response.data ? response.data : response;})
       .then((data) => setVuelos(data))
       .catch((error) => console.error("Error al obtener los vuelos:", error));
   }, []);
 
-  const handleCardClick = () => {
-    // Redirige a la página /sells con el id del vuelo
-    navigate(`/sales`);
-  };
-
   return (
-    <div>
-        <h1>Vuelos exclusivos</h1>
-        <div className="vuelos-container"> 
-          {vuelos.map((vuelo) => (
-            <div key={vuelo.id_vuelo} className="vuelo-card" onClick={() => handleCardClick(vuelo.id_vuelo)} >
-              <h3>{vuelo.destino}</h3>
-              <p><b>Fecha:</b> {new Date(vuelo.fecha).toLocaleDateString()}</p>
-              <p><b>Origen:</b> {vuelo.origen}</p>
-              <p>Plazas Totales: {vuelo.plazasTotales}</p>
-            </div>
-          ))}
-        </div>
-    </div>    
+    <>
+      <h1 id="seller-vuelos-title">Vuelos exclusivos</h1>
+      <div className="vuelos-container"> 
+        {vuelos.map((vuelo) => (
+          <div key={vuelo.id_vuelo} className="vuelo-card" onClick={() => {navigate(`/sales`);}} >
+            <h3>{vuelo.destino}</h3>
+            <p><b>Fecha:</b> {new Date(vuelo.fecha).toLocaleDateString()}</p>
+            <p><b>Origen:</b> {vuelo.origen}</p>
+            <p>Plazas Totales: {vuelo.plazasTotales}</p>
+          </div>
+        ))}
+      </div>
+    </>    
   );
 };
 
