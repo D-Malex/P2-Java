@@ -1,0 +1,68 @@
+#profile-title {
+  padding-top: 44px;
+  color: darkblue;
+  font-size: 5vw;
+}
+
+.profile-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-card {
+  display: inline-block;
+  padding: 50px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.profile-card label {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.profile-card label strong {
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.profile-card input {
+  background-color: rgb(238, 238, 238);
+  border: white;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box; 
+  padding: 8px;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.profile-card p {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.buttons {
+  margin-top: 30px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.profile-card button.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.profile-card button.active {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
