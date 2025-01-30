@@ -27,7 +27,7 @@ function Home() {
         <h1>Hola, {usuario.nombre}</h1>
       </div>
 
-      <section className="about-us">
+      <section ction className="about-us">
         <h2>Sobre Nosotros</h2>
         <p>
           Nuestra misión es proporcionar experiencias únicas e inolvidables a
@@ -47,8 +47,8 @@ function Home() {
           {branches.map((branch) => (
             <div className="card" key={branch.id_sucursal}>
               <div className="map-icon-container">
-              <FaMapMarkerAlt className="map-icon" />
-            </div>
+                <FaMapMarkerAlt className="map-icon" />
+              </div>
               <h3>{`Sucursal ${branch.id_sucursal}`}</h3>
               <p><b>Dirección:</b> {branch.direccion}</p>
               <p><b>Teléfono:</b> {branch.telefono}</p>
