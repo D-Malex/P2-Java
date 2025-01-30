@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./styles/Sucursal.css";
 import api from "../../utils/api";
 
 const Sucursal = () => {
@@ -8,24 +9,23 @@ const Sucursal = () => {
 
 
   useEffect(() => {
-    const fetchSucursalData = async () => {
+    const fetchSucursal = async () => {
       try {
-
-        const userData = JSON.parse(localStorage.getItem("usuario"));
-        if (!userData || !userData.id_sucursal) {
+        const usuario = JSON.parse(localStorage.getItem("usuario"));
+        if (!usuario || !usuario.id_sucursal) {
           throw new Error("No se encontró información de sucursal en el usuario.");
         }
-
-        const response = await api.get(`/sucursales/${userData.id_sucursal}`);
-        setSucursalData(response.data); 
+  
+        const response = await api.get(`/sucursales/${usuario.id_sucursal}`);
+        setSucursalData(response.data);
       } catch (err) {
         setError(err.message || "Error al obtener la información de la sucursal.");
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
-
-    fetchSucursalData();
+  
+    fetchSucursal();
   }, []);
 
 
@@ -38,21 +38,17 @@ const Sucursal = () => {
   }
 
   return (
-    <div className="profile-container">
+    <>
+      <div className="sucursal-container">
       <h1>Información de la Sucursal</h1>
-      <div className="profile-card">
-        <h2>Sucursal #{sucursalData.id_sucursal}</h2>
-        <p>
-          <strong>Dirección:</strong> {sucursalData.direccion}
-        </p>
-        <p>
-          <strong>Email:</strong> {sucursalData.email}
-        </p>
-        <p>
-          <strong>Teléfono:</strong> {sucursalData.telefono}
-        </p>
+        <div className="sucursal-card">
+          <h2>Sucursal Nro. {sucursalData.id_sucursal}</h2>
+          <p><strong>Dirección:</strong> {sucursalData.direccion}</p>
+          <p><strong>Email:</strong> {sucursalData.email}</p>
+          <p><strong>Teléfono:</strong> {sucursalData.telefono}</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
