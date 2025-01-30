@@ -19,7 +19,7 @@ function Sucursales() {
   }, []); // Ejecutar el efecto una sola vez al montar el componente
 
   return (
-    <div className="sucursal-container">
+    <>
       <header className="sucursal-header">
         <h1>¿Dónde podés encontrarnos?</h1>
       </header>
@@ -39,7 +39,7 @@ function Sucursales() {
           ))}
         </div>
       </section>
-    </div>
+    </>
   );
 }
 

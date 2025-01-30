@@ -64,7 +64,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="profile-container">
+    <>
       <h1>Perfil de Usuario</h1>
       <div className="profile-card">
         <form>
@@ -133,7 +133,7 @@ const Profile = () => {
           </div>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

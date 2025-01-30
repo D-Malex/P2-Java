@@ -1,12 +1,9 @@
 import React from "react";
-import NavBar from "./tourist/NavBar";
-import Footer from "./Footer";
 import "./styles/Nosotros.css"; 
 
 const Nosotros   = () => {
   return (
     <div className="about-us-container">
-      <NavBar />
       <h1>Acerca de Nosotros</h1>
       <p>
         Nuestra misión es ofrecer experiencias únicas de viaje, brindando un
@@ -21,7 +18,6 @@ const Nosotros   = () => {
         Te invitamos a conocer el mundo con nosotros, explorando nuevos
         horizontes y viviendo momentos que nunca olvidarás. ¡Viajar es vivir!
       </p>
-      <Footer />
     </div>
   );
 };

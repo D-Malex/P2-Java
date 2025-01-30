@@ -37,12 +37,56 @@ html, body, #root {
 
 .login-box input {
   background-color: rgb(219, 219, 219);
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-box button {
+  margin:  0;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.login-box button.register-button {
+  margin-top: 20px;
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.login-box button.register-button:hover {
+  background-color: #007bff;
+  color: white;
 }
 
 .image-container {
   width: 70%;
   background: url('../../assets//portada-loggin.jpg') no-repeat center center/cover;
   height: 100vh;
+}
+
+.back-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+}
+
+.back-icon:hover {
+  color: #007bff;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
 }
 
 /* Responsive */
