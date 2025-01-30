@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../utils/api";
 import "./styles/Vuelos.css";
+import { mergeConfig } from "axios";
 
 const Vuelos = () => {
   const [vuelos, setVuelos] = useState([]);
@@ -10,8 +11,8 @@ const Vuelos = () => {
     hora: "",
     origen: "",
     destino: "",
-    plazasTotales: 0,
-    plazasTurista: 0,
+    plazasTotales: null,
+    plazasTurista: null,
   });
 
   useEffect(() => {
@@ -36,8 +37,8 @@ const Vuelos = () => {
         hora: "",
         origen: "",
         destino: "",
-        plazasTotales: 0,
-        plazasTurista: 0,
+        plazasTotales: null,
+        plazasTurista: null,
       });
     } catch (error) {
       console.error("Error adding vuelo:", error);
@@ -59,11 +60,13 @@ const Vuelos = () => {
   };
 
   const handleDeleteVuelo = async (id) => {
-    try {
-      await api.delete(`/vuelos/${id}`);
-      setVuelos(vuelos.filter((vuelo) => vuelo.id_vuelo !== id));
-    } catch (error) {
-      console.error("Error deleting vuelo:", error);
+    if(confirm("¿Seguro que quiere eliminar este vuelo?")) {
+      try {
+        await api.delete(`/vuelos/${id}`);
+        setVuelos(vuelos.filter((vuelo) => vuelo.id_vuelo !== id));
+      } catch (error) {
+        console.error("Error deleting vuelo:", error);
+      }
     }
   };
 
