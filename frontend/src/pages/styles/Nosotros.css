@@ -1,21 +1,21 @@
-/* AboutUs.css */
 .about-us-container {
   padding: 20px;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  max-width: 800px;
+  background-color: #d7ebff;
+  text-align: start;
   margin: auto;
   font-family: Arial, sans-serif;
 }
 
 .about-us-container h1 {
   text-align: center;
-  color: #333;
+  color: darkblue;
+  margin-top: 70px;
+  font-size: 8vw;
 }
 
 .about-us-container p {
-  color: #555;
+  color: rgb(3, 3, 80);
   line-height: 1.6;
   font-size: 1.2em;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
