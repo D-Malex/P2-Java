@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
-import "./styles/Hoteles.css";
 import api from "../../utils/api";
+import "./styles/Hoteles.css";
 
 
 const Hoteles = () => {
@@ -71,7 +69,6 @@ const Hoteles = () => {
 
   return (
     <div id="hoteles-container">
-      <NavBar />
       <h1>Lista de Hoteles</h1>
       <table className="hoteles-table">
         <thead>
@@ -175,7 +172,6 @@ const Hoteles = () => {
         <input type="number" min="0" placeholder="Plazas Disponibles" value={newHotel.plazasDisponibles} onChange={(e) => setNewHotel({ ...newHotel, plazasDisponibles: parseInt(e.target.value, 10) })} />
         <button onClick={handleAddHotel}>Agregar</button>
       </div>
-      <Footer />
     </div>
   );
 };

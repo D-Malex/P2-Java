@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
-import "./styles/Vuelos.css";
 import api from "../../utils/api";
+import "./styles/Vuelos.css";
 
 const Vuelos = () => {
   const [vuelos, setVuelos] = useState([]);
@@ -71,7 +69,6 @@ const Vuelos = () => {
 
   return (
     <div id="vuelos-container">
-      <NavBar />
       <h1>Lista de Vuelos</h1>
       <table className="vuelos-table">
         <thead>
@@ -223,7 +220,6 @@ const Vuelos = () => {
         />
         <button onClick={handleAddVuelo}>Agregar</button>
       </div>
-      <Footer />
     </div>
   );
 };

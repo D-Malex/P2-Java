@@ -20,7 +20,8 @@ import SSucursal from '../pages/seller/Sucursal'
 import SRegVentas from "../pages/seller/RegistroVentas";
 import SVender from "../pages/seller/Vender";
 /*IMPORT ADMIN PAGES*/
-import AHome from "../pages/admin/AdminHome";
+import ALoyout from "../pages/admin/Loyout";
+import AHome from "../pages/admin/Home";
 import ASucursales from "../pages/admin/Sucursales";
 import AHoteles from "../pages/admin/Hoteles";
 import AVuelos from "../pages/admin/Vuelos";
@@ -59,12 +60,14 @@ function AppRoutes() {
         );
       case "ADMINISTRADOR": return (
         <>
+          <Route element={<ALoyout/>}>
             <Route path="/home" element={ <ProtectedRoute>        <AHome />         </ProtectedRoute> } />
             <Route path="/sucursales" element={ <ProtectedRoute>  <ASucursales />   </ProtectedRoute> } />
             <Route path="/hotels" element={ <ProtectedRoute>      <AHoteles />      </ProtectedRoute> } />
             <Route path="/profile" element={ <ProtectedRoute>     <Perfil />      </ProtectedRoute> } />
             <Route path="/flights" element={ <ProtectedRoute>     <AVuelos />       </ProtectedRoute> } />
             <Route path="/sellers" element={ <ProtectedRoute>     <AVendedores />   </ProtectedRoute> } />
+          </Route>
         </>
         );
       case "VENDEDOR": return (

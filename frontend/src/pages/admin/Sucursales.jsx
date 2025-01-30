@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
 import api from "../../utils/api";
 import "./styles/Sucursales.css";
 
@@ -57,7 +55,6 @@ const Sucursales = () => {
 
   return (
     <div className="sucursales-container">
-      <NavBar />
       <h1>Lista de Sucursales</h1>
       <table className="sucursales-table">
         <thead>
@@ -149,7 +146,6 @@ const Sucursales = () => {
         />
         <button onClick={handleAddSucursal}>Agregar</button>
       </div>
-      <Footer/>
     </div>
   );
 };

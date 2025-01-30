@@ -1,15 +1,17 @@
-import React from "react";
+import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "../Footer";
 
-function Home() {
+function Layout() {
   return (
     <>
       <NavBar />
-      <h1>Welcome ADMIN</h1>
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
 }
 
-export default Home;
+export default Layout;

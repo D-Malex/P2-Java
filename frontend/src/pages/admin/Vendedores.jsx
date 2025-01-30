@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
-import "./styles/Vendedores.css";
 import api from "../../utils/api";
+import "./styles/Vendedores.css";
 
 const Vendedores = () => {
   const [vendedores, setVendedores] = useState([]);
@@ -92,7 +90,6 @@ const Vendedores = () => {
 
     return (
       <div id="vendedores-container">
-        <NavBar />
         <h1>Lista de Vendedores</h1>
         <input
           type="text"
@@ -250,7 +247,6 @@ const Vendedores = () => {
       </select>
       <button onClick={handleCreateVendedor}>Agregar</button>
     </div>
-        <Footer />
       </div>
     );
 };
