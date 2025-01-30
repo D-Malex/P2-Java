@@ -1,8 +1,16 @@
+#viajes-title {
+  padding-top: 44px;
+  font-size: 6vw;
+  color: darkblue;
+}
+
 .viajes-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   color: #333;
+  justify-content: center;
+  padding-bottom: 44px;
 }
 
 .viaje-card {
@@ -12,10 +20,6 @@
   width: 300px;
   background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.viaje-card h2 {
-  margin-top: 0;
 }
 
 .viaje-card p {
@@ -28,9 +32,19 @@
   font-size: 1.2rem;
   margin-top: 10px;
 }
-.viaje-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 15px;
+
+.plane-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  border-radius: 50%;
+  margin: 0 auto 1rem auto;
+}
+
+.plane-icon {
+  color: white;
+  font-size: 24px;
 }
