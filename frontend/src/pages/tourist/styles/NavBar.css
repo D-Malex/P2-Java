@@ -9,6 +9,7 @@
   margin-top: 0px;
   width: 96%;
   position: fixed;
+  z-index: 1000;
 }
 
 /* Botón de logout */
