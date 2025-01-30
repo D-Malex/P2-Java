@@ -45,11 +45,13 @@ const Sucursales = () => {
   };
 
   const handleDeleteSucursal = async (id) => {
-    try {
-      await api.delete(`/sucursales/${id}`);
-      setSucursales(sucursales.filter((sucursal) => sucursal.id_sucursal !== id));
-    } catch (error) {
-      console.error("Error deleting sucursal:", error);
+    if(confirm("¿Seguro quiere eliminiar esta sucursal?")) {
+      try {
+        await api.delete(`/sucursales/${id}`);
+        setSucursales(sucursales.filter((sucursal) => sucursal.id_sucursal !== id));
+      } catch (error) {
+        console.error("Error deleting sucursal:", error);
+      }
     }
   };
 

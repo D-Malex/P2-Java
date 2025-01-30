@@ -1,15 +1,7 @@
-/* Estilos para el componente Sucursales */
-
-.sucursales-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
+.sucursales-container  h1 {
+  margin-top: 80px;
+  font-size: 7vw;
+  color: darkblue;
 }
 
 .sucursales-table {
@@ -22,16 +14,16 @@ h1 {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
-  color: #f4f4f4;
+  color: #333;
 }
 
 .sucursales-table th {
-  color: #f4f4f4;
+  color: #333;
   font-weight: bold;
 }
 
 
-button {
+.sucursales-table button {
   padding: 5px 10px;
   margin: 0 5px;
   border: none;
@@ -39,16 +31,16 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.sucursales-table button:hover {
   opacity: 0.9;
 }
 
-button:nth-child(1) {
+.sucursales-table button:nth-child(1) {
   background-color: #007BFF;
   color: white;
 }
 
-button:nth-child(2) {
+.sucursales-table button:nth-child(2) {
   background-color: #f44336;
   color: white;
 }
@@ -63,6 +55,7 @@ button:nth-child(2) {
 
 .add-sucursal h2 {
   margin-bottom: 15px;
+  color: #f4f4f4;
 }
 
 .add-sucursal input {
