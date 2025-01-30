@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
-import Footer from "../Footer";
-import NavBar from "./NavBar";
 
 const Sucursal = () => {
   const [sucursalData, setSucursalData] = useState(null);
@@ -41,7 +39,6 @@ const Sucursal = () => {
 
   return (
     <div className="profile-container">
-      <NavBar />
       <h1>Información de la Sucursal</h1>
       <div className="profile-card">
         <h2>Sucursal #{sucursalData.id_sucursal}</h2>
@@ -55,7 +52,6 @@ const Sucursal = () => {
           <strong>Teléfono:</strong> {sucursalData.telefono}
         </p>
       </div>
-      <Footer />
     </div>
   );
 };

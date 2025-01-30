@@ -23,7 +23,6 @@ const NavBar = () => {
       <div className="navbar-links">
         <Link to="/home"><b>Inicio</b></Link>
         <Link to="/sales"><b>Vender</b></Link>
-        <Link to="/packages"><b>Paquetes</b></Link>
         <Link to="/flights"><b>Vuelos</b></Link>
         <Link to="/hotels"><b>Hoteles</b></Link>
         <Link to="/registry/sales"><b>Registro de ventas</b></Link>

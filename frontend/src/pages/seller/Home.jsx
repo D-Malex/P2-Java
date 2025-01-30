@@ -1,14 +1,14 @@
 import React from "react";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
+import "./styles/Home.css";
 
 function Home() {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
   return (
-    <div>
-      <NavBar />
-      <h1>Welcome SELLER</h1> 
-      <Footer />
-    </div>
+    <>
+      <div id="seller-home-image">
+      <h1 id="seller-home-title">Welcome, {usuario.nombre}</h1>
+      </div>
+    </>
   );
 }
 

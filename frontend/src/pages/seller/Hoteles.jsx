@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
 import api from "../../utils/api";
 import './styles/Hoteles.css'; 
 
@@ -27,7 +25,6 @@ const Hoteles = () => {
 
   return (
     <div>
-      <NavBar />
       <h1>Hoteles exclusivos</h1>
       <div className="hoteles-container"> 
         {hoteles.map((hotel) => (
@@ -43,7 +40,6 @@ const Hoteles = () => {
           </div>
         ))}
       </div>
-      <Footer />
     </div>    
   );
 };

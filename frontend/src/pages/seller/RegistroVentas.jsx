@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
 import "./styles/RegistroVenta.css";
 
 const RegistroVentas = () => {
@@ -43,7 +41,6 @@ const RegistroVentas = () => {
 
   return (
     <>
-      <NavBar/>
       <div className="registro-ventas-container">
       {/* Tabla de ventas */}
       <div className="tabla-ventas">
@@ -84,7 +81,6 @@ const RegistroVentas = () => {
         <p>${totalFacturado.toFixed(2)}</p>
       </div>
     </div>
-    <Footer />
     </>
   );
 };

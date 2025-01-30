@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
 import api from "../../utils/api";
 import './styles/Vuelos.css'; 
 
@@ -27,7 +25,6 @@ const Vuelos = () => {
 
   return (
     <div>
-      <NavBar />
         <h1>Vuelos exclusivos</h1>
         <div className="vuelos-container"> 
           {vuelos.map((vuelo) => (
@@ -39,7 +36,6 @@ const Vuelos = () => {
             </div>
           ))}
         </div>
-     <Footer />
     </div>    
   );
 };

@@ -12,8 +12,8 @@ import TSucursal from "../pages/tourist/Sucursales";
 import TViajes from "../pages/tourist/Viajes";
 import TNosotros from "../pages/Nosotros";
 /*IMPORT SELLER PAGES*/
+import SLoyout from "../pages/seller/Loyout";
 import SHome from "../pages/seller/Home";
-import SPaquetes from "../pages/seller/Paquetes";
 import SVuelos from "../pages/seller/Vuelos";
 import SHoteles from "../pages/seller/Hoteles";
 import SSucursal from '../pages/seller/Sucursal'
@@ -69,14 +69,15 @@ function AppRoutes() {
         );
       case "VENDEDOR": return (
         <>
+          <Route element={<SLoyout/>}>
             <Route path="/home" element={ <ProtectedRoute>             <SHome />      </ProtectedRoute> } />
-            <Route path="/packages" element={ <ProtectedRoute>         <SPaquetes />  </ProtectedRoute> } />
             <Route path="/flights" element={ <ProtectedRoute>          <SVuelos />    </ProtectedRoute> } />
             <Route path="/hotels" element={ <ProtectedRoute>           <SHoteles />   </ProtectedRoute> } />
             <Route path="/profile" element={ <ProtectedRoute>          <Perfil />    </ProtectedRoute> } />
             <Route path="/sucursal" element={ <ProtectedRoute>         <SSucursal />  </ProtectedRoute> } />
             <Route path="/registry/sales" element={ <ProtectedRoute>   <SRegVentas /> </ProtectedRoute> } />
             <Route path="/sales" element={ <ProtectedRoute>            <SVender />    </ProtectedRoute> } />
+          </Route>
         </>
         );
       case "TURISTA": return (

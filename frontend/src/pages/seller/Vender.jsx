@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import api from "../../utils/api";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
 import "./styles/Vender.css";
 
 const Vender = () => {
@@ -129,7 +127,6 @@ const Vender = () => {
 
   return (
     <>
-    <NavBar />
       <div className="vender-container">
     <h1>Vender Viaje</h1>
     <div className="form-group">
@@ -220,7 +217,6 @@ const Vender = () => {
       </>
     )}
   </div>
-    <Footer />
     </>
   );
 };
