@@ -11,8 +11,7 @@ const Hoteles = () => {
     direccion: "",
     ciudad: "",
     telefono: "",
-    plazasDisponibles: 0,
-    estrellas: 1,
+    plazasDisponibles: null,
   });
 
   useEffect(() => {
@@ -59,11 +58,13 @@ const Hoteles = () => {
   };
 
   const handleDeleteHotel = async (id) => {
-    try {
-      await api.delete(`/hoteles/${id}`);
-      setHoteles(hoteles.filter((hotel) => hotel.id_hotel !== id));
-    } catch (error) {
-      console.error("Error deleting hotel:", error);
+    if(confirm("¿Seguro que quiere eliminar este hotel?")) {
+      try {
+        await api.delete(`/hoteles/${id}`);
+        setHoteles(hoteles.filter((hotel) => hotel.id_hotel !== id));
+      } catch (error) {
+        console.error("Error deleting hotel:", error);
+      }
     }
   };
 
