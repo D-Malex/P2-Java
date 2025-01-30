@@ -3,6 +3,7 @@ html, body, #root {
   padding: 0px !important;
   height: 100%;
   width: 100%;
+  font-family: Arial, sans-serif;
 }
 
 .login-page {
