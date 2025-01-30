@@ -16,20 +16,18 @@ body {
 }
 
 /* Form styles */
-form {
+.vender-container form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-label {
+.vender-container label {
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-select,
-input,
-button {
+.vender-container select, input,button {
   font-size: 16px;
   padding: 10px;
   border-radius: 5px;
@@ -37,25 +35,24 @@ button {
   outline: none;
 }
 
-select:focus,
-input:focus {
+.vender-container select:focus, input:focus {
   border-color: #007bff;
   box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
-button {
+.vender-container button {
   background-color: #007bff;
   cursor: pointer;
   border: none;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.vender-container button:hover {
   background-color: #0056b3;
 }
 
 /* Section titles */
-h2 {
+.vender-container  h2 {
   margin-bottom: 20px;
   text-align: center;
 }

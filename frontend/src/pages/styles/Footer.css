@@ -1,39 +1,39 @@
 /* Footer general */
 .footer {
-  background-color: #333; /* Fondo oscuro */
-  color: white; /* Texto blanco */
-  text-align: center;
-  padding: 20px; /* Espaciado interno */
-  margin-top: 40px; /* Separación del contenido superior */
+  background-color: #000225;
+  color: #6d74ff; 
+  text-align: right;
+  padding: 20px;
+  margin-top: 5px;
 }
 
 .footer h2 {
-  font-size: 24px; /* Tamaño del título */
-  margin-bottom: 10px;
+  text-align: left;
+  font-size: 5vw; 
 }
 
 .footer p {
-  font-size: 16px; /* Tamaño del texto */
-  margin: 5px 0; /* Espaciado entre párrafos */
+  font-size: 2vw;
+  margin: 5px 0; 
 }
 
 .footer .social-media {
-  margin-top: 10px; /* Espaciado superior */
+  margin-top: 10px;
 }
 
 .footer .social-media a {
-  color: white; /* Texto blanco */
-  margin: 0 15px; /* Separación entre enlaces */
-  text-decoration: none; /* Sin subrayado */
-  font-size: 18px; /* Tamaño del texto */
-  transition: color 0.3s ease; /* Transición al pasar el mouse */
+  color: #6d74ff; 
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 2vw; 
+  transition: color 0.3s ease; 
 }
 
 .footer .social-media a:hover {
-  color: #007bff; /* Azul brillante al pasar el mouse */
+  color: #0011ff; 
 }
 
 .footer .social-media i {
-  margin-right: 8px; /* Espaciado entre el ícono y el texto */
-  font-size: 20px; /* Tamaño del ícono */
+  margin-right: 8px; 
+  font-size: 2vw;
 }

@@ -6,8 +6,8 @@ function Footer() {
   return (
     <footer className="footer">
       <h2>Contacto</h2>
-      <p>Email: contacto@columbiaviajes.com</p>
-      <p>Teléfono: +54 123-456-789</p>
+      <p>+54 123-456-789</p>
+      <p>contacto@columbiaviajes.com</p>
       <div className="social-media">
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-facebook-f"></i> Facebook
