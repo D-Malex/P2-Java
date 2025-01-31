@@ -77,11 +77,13 @@ const Personal = () => {
   };
 
   const handleDeleteUsuario = async (id) => {
-    try {
-      await api.delete(`/usuarios/${id}`);
-      setUsuarios(usuarios.filter((usuario) => usuario.id_usuario !== id));
-    } catch (error) {
-      console.error("Error deleting usuario:", error);
+    if(confirm("¿Seguro desea eliminar a este usuario?")) {
+      try {
+        await api.delete(`/usuarios/${id}`);
+        setUsuarios(usuarios.filter((usuario) => usuario.id_usuario !== id));
+      } catch (error) {
+        console.error("Error deleting usuario:", error);
+      }
     }
   };
 

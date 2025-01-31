@@ -58,11 +58,13 @@ const Vuelos = () => {
   };
 
   const handleDeleteVuelo = async (id) => {
-    try {
-      await api.delete(`/vuelos/${id}`);
-      setVuelos(vuelos.filter((vuelo) => vuelo.id_vuelo !== id));
-    } catch (error) {
-      console.error("Error deleting vuelo:", error);
+    if(confirm("¿Seguro desea eliminar este vuelo?")) {
+      try {
+        await api.delete(`/vuelos/${id}`);
+        setVuelos(vuelos.filter((vuelo) => vuelo.id_vuelo !== id));
+      } catch (error) {
+        console.error("Error deleting vuelo:", error);
+      }
     }
   };
 
