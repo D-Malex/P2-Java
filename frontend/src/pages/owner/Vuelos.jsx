@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
-import "./styles/Vuelos.css";
 import api from "../../utils/api";
 
 const Vuelos = () => {
@@ -12,8 +9,8 @@ const Vuelos = () => {
     hora: "",
     origen: "",
     destino: "",
-    plazasTotales: 0,
-    plazasTurista: 0,
+    plazasTotales: null,
+    plazasTurista: null,
   });
 
   useEffect(() => {
@@ -38,8 +35,8 @@ const Vuelos = () => {
         hora: "",
         origen: "",
         destino: "",
-        plazasTotales: 0,
-        plazasTurista: 0,
+        plazasTotales: null,
+        plazasTurista: null,
       });
     } catch (error) {
       console.error("Error adding vuelo:", error);
@@ -71,7 +68,6 @@ const Vuelos = () => {
 
   return (
     <div id="vuelos-container">
-      <NavBar />
       <h1>Lista de Vuelos</h1>
       <table className="vuelos-table">
         <thead>
@@ -223,7 +219,6 @@ const Vuelos = () => {
         />
         <button onClick={handleAddVuelo}>Agregar</button>
       </div>
-      <Footer />
     </div>
   );
 };

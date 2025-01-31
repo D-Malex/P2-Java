@@ -22,7 +22,7 @@ const NavBar = () => {
 
       <div className="navbar-links">
         <Link to="/home"><b>Inicio</b></Link>
-        <Link to="/Sucursales"><b>Sucursales</b></Link>
+        <Link to="/sucursales"><b>Sucursales</b></Link>
         <Link to="/flights"><b>Vuelos</b></Link>
         <Link to="/hotels"><b>Hoteles</b></Link>
         <Link to="/registry/sales"><b>Registro de ventas</b></Link>

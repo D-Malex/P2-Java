@@ -1,0 +1,20 @@
+#owner-home-image {
+  background: url("../../../assets/portada-owner.jpg");
+  padding-top: 20%;
+  padding-bottom: 30%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  overflow: auto;
+}
+
+#owner-home-title  {
+  font-size: 9vw;
+  font-weight: bold;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

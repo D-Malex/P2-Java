@@ -27,10 +27,11 @@ import AHoteles from "../pages/admin/Hoteles";
 import AVuelos from "../pages/admin/Vuelos";
 import AVendedores from "../pages/admin/Vendedores";
 /*IMPORT OWNER PAGES*/
+import OLoyout from "../pages/owner/Loyout";
 import OHome from "../pages/owner/Home";
 import OSucursales from "../pages/owner/Surusales";
-import OVuelos from "../pages/owner/Hoteles";
-import OHoteles from "../pages/owner/Vuelos";
+import OVuelos from "../pages/owner/Vuelos";
+import OHoteles from "../pages/owner/Hoteles";
 import OPersonal from "../pages/owner/Personal";
 import ORegistrySales from "../pages/owner/RegistroVentas";
 
@@ -49,13 +50,15 @@ function AppRoutes() {
     switch (userLogged.rol.nombre) {
       case "DUENIO": return (
         <>
+          <Route element={<OLoyout />}>
             <Route path="/home" element={ <ProtectedRoute>            <OHome />           </ProtectedRoute> } />
-            <Route path="/profile" element={ <ProtectedRoute>         <Perfil />        </ProtectedRoute> } />
+            <Route path="/profile" element={ <ProtectedRoute>         <Perfil />          </ProtectedRoute> } />
             <Route path="/sucursales" element={ <ProtectedRoute>      <OSucursales />     </ProtectedRoute> } />
             <Route path="/flights" element={ <ProtectedRoute>         <OVuelos />         </ProtectedRoute> } />
             <Route path="/hotels" element={ <ProtectedRoute>          <OHoteles />        </ProtectedRoute> } />
             <Route path="/personel" element={ <ProtectedRoute>        <OPersonal />       </ProtectedRoute> } />
             <Route path="/registry/sales" element={ <ProtectedRoute>  <ORegistrySales />  </ProtectedRoute> } />
+          </Route>
         </>
         );
       case "ADMINISTRADOR": return (
@@ -64,7 +67,7 @@ function AppRoutes() {
             <Route path="/home" element={ <ProtectedRoute>        <AHome />         </ProtectedRoute> } />
             <Route path="/sucursales" element={ <ProtectedRoute>  <ASucursales />   </ProtectedRoute> } />
             <Route path="/hotels" element={ <ProtectedRoute>      <AHoteles />      </ProtectedRoute> } />
-            <Route path="/profile" element={ <ProtectedRoute>     <Perfil />      </ProtectedRoute> } />
+            <Route path="/profile" element={ <ProtectedRoute>     <Perfil />        </ProtectedRoute> } />
             <Route path="/flights" element={ <ProtectedRoute>     <AVuelos />       </ProtectedRoute> } />
             <Route path="/sellers" element={ <ProtectedRoute>     <AVendedores />   </ProtectedRoute> } />
           </Route>

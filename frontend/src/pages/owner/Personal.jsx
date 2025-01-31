@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
 import "./styles/Personal.css";
 import api from "../../utils/api";
 
@@ -94,7 +92,6 @@ const Personal = () => {
 
     return (
       <div id="usuarios-container">
-        <NavBar />
         <h1>Lista de Usuarios</h1>
 
         <div className="filter-container">
@@ -235,7 +232,6 @@ const Personal = () => {
 
           <button onClick={handleCreateUsuario}>Agregar</button>
         </div>
-        <Footer />
       </div>
     );
 };

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../utils/api";
-import NavBar from "./NavBar";
-import Footer from "../Footer";
-import "./styles/RegistroVentas.css"; // Archivo CSS para los estilos
+import "./styles/RegistroVentas.css";
 
 const RegistroVentas = () => {
   const [vendedores, setVendedores] = useState([]);
@@ -44,7 +42,6 @@ const RegistroVentas = () => {
 
   return (
     <div className="registro-ventas">
-      <NavBar />
       <h1>Registro de Ventas</h1>
       <input
         type="text"
@@ -80,7 +77,6 @@ const RegistroVentas = () => {
           ))}
         </tbody>
       </table>
-      <Footer />
     </div>
   );
 };
