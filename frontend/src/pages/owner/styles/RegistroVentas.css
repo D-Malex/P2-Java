@@ -1,14 +1,8 @@
-.registro-ventas {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
 
 .registro-ventas h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #ddd;
+  margin-top: 80px;
+  font-size: 8vw;
+  color: darkblue;
 }
 
 
@@ -22,10 +16,10 @@
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
-  color: #f4f4f4;
+  color: #333;
 }
 
 .tabla-vendedores th {
-  color: #f4f4f4;
+  color: #333;
   font-weight: bold;
 }
