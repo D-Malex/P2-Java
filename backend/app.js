@@ -1,8 +1,7 @@
 const express = require('express');
-const connectDB = require('./config/db');
+const {connectDB} = require('./config/db');
 const globalMiddlewares = require('./middlewares/globalMiddlewares');
 const router = require('./routes/index');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 

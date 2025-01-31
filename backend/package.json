@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./app.js",
+    "seeds": "node ./seeds/roleEntity-seed.js",
     "dev": "nodemon ./app.js"
   },
   "dependencies": {

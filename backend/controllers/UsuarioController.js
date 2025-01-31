@@ -1,8 +1,12 @@
+const RoleEntity = require('../models/RoleEntity');
+const Sucursal = require('../models/Sucursal');
 const Usuario = require('../models/Usuario');
+const mongoose = require('mongoose');
 
 exports.getUsuarios = async (req, res) => {
   try {
-    const usuarios = await Usuario.find();
+    const usuarios = await Usuario.find()
+      .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol
     res.json(usuarios);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -10,7 +14,27 @@ exports.getUsuarios = async (req, res) => {
 };
 
 exports.createUsuario = async (req, res) => {
-  const usuario = new Usuario(req.body);
+  const { nombre, apellido, email, psw, direccion, telefono, rol, id_sucursal } = req.body;
+
+  // Validar que el rol y la sucursal sean ObjectId válidos
+  if (!mongoose.Types.ObjectId.isValid(rol.id_rol)) {
+    return res.status(400).json({ message: 'ID de rol no válido' });
+  }
+  if (id_sucursal && !mongoose.Types.ObjectId.isValid(id_sucursal)) {
+    return res.status(400).json({ message: 'ID de sucursal no válido' });
+  }
+
+  const usuario = new Usuario({
+    nombre,
+    apellido,
+    email,
+    psw,
+    direccion,
+    telefono,
+    rol,
+    id_sucursal,
+  });
+
   try {
     const savedUsuario = await usuario.save();
     res.status(201).json(savedUsuario);
@@ -29,6 +53,14 @@ exports.createUsuarios = async (req, res) => {
 
     const usuariosCreados = await Promise.all(
       usuarios.map(async (usuario) => {
+        // Validar que el rol y la sucursal sean ObjectId válidos
+        if (!mongoose.Types.ObjectId.isValid(usuario.rol)) {
+          throw new Error('ID de rol no válido');
+        }
+        if (usuario.id_sucursal && !mongoose.Types.ObjectId.isValid(usuario.id_sucursal)) {
+          throw new Error('ID de sucursal no válido');
+        }
+
         const nuevoUsuario = new Usuario(usuario);
         return await nuevoUsuario.save();
       })
@@ -44,6 +76,14 @@ exports.actualizarUsuario = async (req, res) => {
   try {
     const { id } = req.params;
     const nuevosDatos = req.body;
+
+    // Validar que el rol y la sucursal sean ObjectId válidos
+    if (nuevosDatos.rol && !mongoose.Types.ObjectId.isValid(nuevosDatos.rol)) {
+      return res.status(400).json({ message: 'ID de rol no válido' });
+    }
+    if (nuevosDatos.id_sucursal && !mongoose.Types.ObjectId.isValid(nuevosDatos.id_sucursal)) {
+      return res.status(400).json({ message: 'ID de sucursal no válido' });
+    }
 
     // Verificar si el usuario es vendedor y tiene sucursal asignada
     if (nuevosDatos.rol === 'VENDEDOR' && !nuevosDatos.id_sucursal) {
@@ -71,7 +111,10 @@ exports.obtenerUsuarioPorId = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const usuario = await Usuario.findById(id);
+    const usuario = await Usuario.findById(id)
+      .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol
+      .populate('id_sucursal', 'direccion'); // Incluir solo el campo 'direccion' de la sucursal
+
     if (!usuario) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
@@ -86,7 +129,10 @@ exports.obtenerUsuariosPorRol = async (req, res) => {
   try {
     const { id_rol } = req.params;
 
-    const usuarios = await Usuario.find({ rol: id_rol });
+    const usuarios = await Usuario.find({ rol: id_rol })
+      .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol
+      .populate('id_sucursal', 'direccion'); // Incluir solo el campo 'direccion' de la sucursal
+
     if (usuarios.length === 0) {
       return res.status(404).json({ message: 'No se encontraron usuarios con ese rol' });
     }
@@ -101,7 +147,10 @@ exports.obtenerUsuarioPorEmail = async (req, res) => {
   try {
     const { email } = req.query;
 
-    const usuario = await Usuario.findOne({ email });
+    const usuario = await Usuario.findOne({ email })
+      .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol
+      .populate('id_sucursal', 'direccion'); // Incluir solo el campo 'direccion' de la sucursal
+
     if (!usuario) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
