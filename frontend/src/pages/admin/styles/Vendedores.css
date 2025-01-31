@@ -1,21 +1,17 @@
-#vendedores-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
 #vendedores-container h1 {
-  text-align: center;
-  margin-bottom: 20px;
+  margin-top: 80px;
+  font-size: 7vw;
+  color: darkblue;
 }
 
-#vendedores-container input[type="text"] {
-  width: 100%;
+.add-vendedor input, select {
+  width: calc(100% - 22px);
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  background-color: #333;
+  color: #f4f4f4;
 }
 
 .vendedores-table {
@@ -28,15 +24,15 @@
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
-  color: #f4f4f4;
+  color: #333;
 }
 
 .vendedores-table th {
-  color: #f4f4f4;
+  color: #333;
   font-weight: bold;
 }
 
-button {
+#vendedores-container button {
   padding: 5px 10px;
   margin: 0 5px;
   border: none;
@@ -44,16 +40,16 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+#vendedores-container button:hover {
   opacity: 0.9;
 }
 
-button:nth-child(1) {
+#vendedores-container button:nth-child(1) {
   background-color: #007BFF;
   color: white;
 }
 
-button:nth-child(2) {
+#vendedores-container button:nth-child(2) {
   background-color: #f44336;
   color: white;
 }
@@ -68,19 +64,11 @@ button:nth-child(2) {
 
 .add-vendedor h2 {
   margin-bottom: 15px;
-}
-
-.add-vendedor input {
-  width: calc(100% - 22px);
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #333;
   color: #f4f4f4;
 }
 
 .add-vendedor button {
   background-color: #4CAF50;
   color: white;
+  font-size: 3vw;
 }

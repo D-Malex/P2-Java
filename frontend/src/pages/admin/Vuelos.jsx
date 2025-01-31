@@ -60,7 +60,7 @@ const Vuelos = () => {
   };
 
   const handleDeleteVuelo = async (id) => {
-    if(confirm("¿Seguro que quiere eliminar este vuelo?")) {
+    if(confirm("¿Seguro que desea eliminar este vuelo?")) {
       try {
         await api.delete(`/vuelos/${id}`);
         setVuelos(vuelos.filter((vuelo) => vuelo.id_vuelo !== id));

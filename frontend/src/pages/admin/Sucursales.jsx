@@ -45,7 +45,7 @@ const Sucursales = () => {
   };
 
   const handleDeleteSucursal = async (id) => {
-    if(confirm("¿Seguro quiere eliminiar esta sucursal?")) {
+    if(confirm("¿Seguro desea eliminiar esta sucursal?")) {
       try {
         await api.delete(`/sucursales/${id}`);
         setSucursales(sucursales.filter((sucursal) => sucursal.id_sucursal !== id));

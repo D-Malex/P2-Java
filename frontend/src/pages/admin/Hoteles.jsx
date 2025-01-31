@@ -58,7 +58,7 @@ const Hoteles = () => {
   };
 
   const handleDeleteHotel = async (id) => {
-    if(confirm("¿Seguro que quiere eliminar este hotel?")) {
+    if(confirm("¿Seguro que desea eliminar este hotel?")) {
       try {
         await api.delete(`/hoteles/${id}`);
         setHoteles(hoteles.filter((hotel) => hotel.id_hotel !== id));

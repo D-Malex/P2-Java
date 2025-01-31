@@ -14,7 +14,7 @@ const Vendedores = () => {
     psw: "",
     direccion: "",
     telefono: "",
-    id_sucursal: 0,
+    id_sucursal: null,
     rol: { id_rol: 3 },
   });
 
@@ -52,7 +52,7 @@ const Vendedores = () => {
         psw: "",
         direccion: "",
         telefono: "",
-        id_sucursal: 0,
+        id_sucursal: null,
         rol: { id_rol: 3 },
       });
     } catch (error) {
@@ -64,9 +64,7 @@ const Vendedores = () => {
     try {
       const response = await api.put(`/usuarios/update`, editingVendedor);
       setVendedores(
-        vendedores.map((vendedor) =>
-          vendedor.id_usuario === id ? response.data : vendedor
-        )
+        vendedores.map((vendedor) => vendedor.id_usuario === id ? response.data : vendedor)
       );
       setEditingVendedor(null);
     } catch (error) {
@@ -75,11 +73,13 @@ const Vendedores = () => {
   };
 
   const handleDeleteVendedor = async (id) => {
-    try {
-      await api.delete(`/usuarios/${id}`);
-      setVendedores(vendedores.filter((vendedor) => vendedor.id_usuario !== id));
-    } catch (error) {
-      console.error("Error deleting vendedor:", error);
+    if(confirm("¿Seguro que desea eliminar a este vendedor?")) {
+      try {
+        await api.delete(`/usuarios/${id}`);
+        setVendedores(vendedores.filter((vendedor) => vendedor.id_usuario !== id));
+      } catch (error) {
+        console.error("Error deleting vendedor:", error);
+      }
     }
   };
 
