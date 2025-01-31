@@ -1,30 +1,19 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const connectDB = require('./config/db');
+const globalMiddlewares = require('./middlewares/globalMiddlewares');
+const router = require('./routes/index');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
+// Conectar a la base de datos
+connectDB();
 
-// Conexión a MongoDB
-mongoose.connect('mongodb://localhost:27017/columbia-viajes', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// Cargar middlewares globales
+globalMiddlewares(app);
 
-const db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'Error de conexión a MongoDB:'));
-db.once('open', () => { console.log('Conectado a MongoDB'); });
-
-// Rutas
-app.get('/', (req, res) => {
-  res.send('API con MongoDB, Express y Node.js');
-});
+// Cargo las rutas
+app.use('/api', router);
 
 // Iniciar el servidor
 app.listen(PORT, () => {

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Usuario = new mongoose.Schema({
+const UsuarioSchema = new mongoose.Schema({
   nombre: {
     type: String,
     required: true,
@@ -12,7 +12,7 @@ const Usuario = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   psw: {
     type: String,
@@ -26,9 +26,16 @@ const Usuario = new mongoose.Schema({
     type: String,
     required: true,
   },
-  rol: {
-    
-  }
+  id_sucursal: {// Referencia a Sucursal
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Sucursal',
+    default: null,
+  },
+  rol: {// Referencia a RoleEntity
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'RoleEntity',
+    required: true,
+  },
 });
 
-module.exports = mongoose.model('Usuario', Usuario);
+module.exports = mongoose.model('Usuario', UsuarioSchema);
