@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./app.js",
-    "seeds": "node ./seeds/roleEntity-seed.js",
+    "seed:roles": "node ./seeds/roleEntity-seed.js", 
+    "seed:sucursales": "node ./seeds/sucursal-seed.js", 
+    "seeds": "node ./seeds/roleEntity-seed.js && node ./seeds/sucursal-seed.js",
     "dev": "nodemon ./app.js"
   },
   "dependencies": {
