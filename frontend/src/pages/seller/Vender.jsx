@@ -56,7 +56,7 @@ const Vender = () => {
     if (vuelo) {api.get(`/hoteles/?ciudad=${vuelo.destino}`).then((response) => setHoteles(response.data));}
   };
 
-  const calcularPrecio = () => {
+  const calcularPrecio = async () => {
     if (!vueloSeleccionado || !hotelSeleccionado || !fechaRetorno) return;
 
     let basePrecio = vueloSeleccionado.plazasTurista * 10; // Precio base por vuelo
@@ -93,6 +93,20 @@ const Vender = () => {
       return;
     }
 
+    if (hotelSeleccionado.plazasDisponibles <= 0) {
+      alert("No hay plazas disponibles en el hotel seleccionado.");
+      return;
+    }
+    
+    if (claseVuelo === "TURISTA" && vueloSeleccionado.plazasTurista <= 0) {
+      alert("No hay plazas disponibles en clase turista.");
+      return;
+    } else if (claseVuelo === "PRIMERA" && vueloSeleccionado.plazasTotales <= 0) {
+      alert("No hay plazas disponibles en clase primera.");
+      return;
+    }
+    
+
     if(confirm("¿Seguro que quiere vender este viaje? Verifique los datos.")) {
       // Crear el viaje
       const viaje = {
@@ -107,17 +121,61 @@ const Vender = () => {
         precio,
       };
 
+      // Crear la venta asociada al viaje
       api.post("/viajes/new", viaje).then((viajeResponse) => {
-        // Crear la venta asociada al viaje
         const venta = { vendedor, viaje: viajeResponse.data, fechaVenta: new Date().toISOString(),};
         console.log("Viaje creado" + viaje);
 
-        api.post("/ventas/new", venta).then(() => { alert("Venta realizada exitosamente"); });
+        api.post("/ventas/new", venta).then(() => { 
+          // Actualizar las plazas disponibles
+          actualizarPlazasHotel(hotelSeleccionado.id_hotel);
+          actualizarPlazasVuelo(vueloSeleccionado.id_vuelo, claseVuelo);
+          alert("Venta realizada exitosamente");
+        });
       });
     }
   };
 
+  const actualizarPlazasHotel = async (idHotel) => {
+    try {
+      const response = await api.get(`/hoteles/${idHotel}`);
+      const hotel = response.data;
+      const plazasActualizadas = hotel.plazasDisponibles - 1;
+      await api.put(`/hoteles/${idHotel}`, {
+        ...hotel,
+        plazasDisponibles: plazasActualizadas,
+      });
+  
+      console.log("Plazas del hotel actualizadas correctamente.");
+    } catch (error) {
+      console.error("Error al actualizar las plazas del hotel:", error);
+    }
+  };
 
+  const actualizarPlazasVuelo = async (idVuelo, claseVuelo) => {
+    try {
+      const response = await api.get(`/vuelos/${idVuelo}`);
+      const vuelo = response.data;
+  
+      // Disminuir las plazas según la clase seleccionada
+      if (claseVuelo === "TURISTA") {
+        vuelo.plazasTotales -= 1;
+        vuelo.plazasTurista -= 1;
+      } else if (claseVuelo === "PRIMERA") {
+        vuelo.plazasTotales -= 1;
+      }
+  
+      await api.put(`/vuelos/${idVuelo}`, {
+        ...vuelo,
+        plazasTotales: vuelo.plazasTotales,
+        plazasTurista: vuelo.plazasTurista,
+      });
+  
+      console.log("Plazas del vuelo actualizadas correctamente.");
+    } catch (error) {
+      console.error("Error al actualizar las plazas del vuelo:", error);
+    }
+  };
 
   return (
     <>
