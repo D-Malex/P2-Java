@@ -5,9 +5,19 @@ const Usuario = require('../models/Usuario');
 const Hotel = require('../models/Hotel');
 const Vuelo = require('../models/Vuelo');
 
+
 exports.getViajes = async (req, res) => {
   try {
-    const viajes = await Viaje.find();
+    const viajes = await Viaje.find()
+    .populate("sucursal")
+    .populate({
+      path: "usuario",
+      populate: {
+        path: "rol",
+      },
+    })
+    .populate("hotel")
+    .populate("vuelo");
     res.json(viajes);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -85,7 +95,16 @@ exports.obtenerViajePorId = async (req, res) => {
       return res.status(400).json({ message: 'ID de viaje no válido' });
     }
 
-    const viaje = await Viaje.findById(id);
+    const viaje = await Viaje.findById(id)
+    .populate("sucursal")
+    .populate({
+      path: "usuario",
+      populate: {
+        path: "rol",
+      },
+    })
+    .populate("hotel")
+    .populate("vuelo");
     if (!viaje) {
       return res.status(404).json({ message: 'Viaje no encontrado' });
     }

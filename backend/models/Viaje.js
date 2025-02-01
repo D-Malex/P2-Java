@@ -1,24 +1,24 @@
 const mongoose = require('mongoose');
 
 const ViajeSchema = new mongoose.Schema({
-  sucursal: {// Referencia a Sucursal
+  sucursal: {
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Sucursal',
     required: true,
   },
-  usuario: {// Referencia a Usuario
+  usuario: {
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Usuario',
     required: true,
   },
-  hotel: {// Referencia a Hotel
+  hotel: {
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Hotel',
   },
   pensionHotel: {
     type: String,
   },
-  vuelo: {// Referencia a Vuelo
+  vuelo: {
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Vuelo',
   },
