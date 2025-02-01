@@ -1,0 +1,56 @@
+### VENTAS REQUESTS ###
+
+GET http://localhost:3000/api/ventas
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/api/ventas/
+Content-Type: application/json
+
+###
+
+POST http://localhost:3000/api/ventas/new
+Content-Type: application/json
+
+{
+  "vendedor": "679da26860b9731564e0755c",
+  "viaje": "679dbc7c2dc63aab0d931355",
+  "fechaVenta": "2024-02-01"
+}
+
+###
+
+POST http://localhost:3000/api/ventas/news
+Content-Type: application/json
+
+[
+  {
+    "vendedor": "679da26860b9731564e0755c",
+    "viaje": "679dbc7c2dc63aab0d931355",
+    "fechaVenta": "2025-06-03"
+  },
+  {
+    "vendedor": "679db95326a57c96186d13ef",
+    "viaje": "679dbc7c2dc63aab0d931356",
+    "fechaVenta": "2025-02-21"
+  }
+]
+
+###
+
+PUT http://localhost:3000/api/ventas/679e61055aba00609d8bdf6c
+Content-Type: application/json
+
+{
+  "vendedor": "679da26860b9731564e0755c",
+  "viaje": "679dbc7c2dc63aab0d931355",
+  "fechaVenta": "2025-03-06"
+}
+
+###
+
+DELETE http://localhost:3000/api/ventas/679e61055aba00609d8bdf6c
+Content-Type: application/json
+
+###
