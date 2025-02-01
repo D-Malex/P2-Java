@@ -10,7 +10,7 @@ const RegistroVentas = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const vendedoresResponse = await api.get("/usuarios/rol/3");
+        const vendedoresResponse = await api.get("/usuarios/rol/679d40bca61fa54e261f61a1");
         const ventasResponse = await api.get("/ventas");
         setVendedores(vendedoresResponse.data);
         setVentas(ventasResponse.data);

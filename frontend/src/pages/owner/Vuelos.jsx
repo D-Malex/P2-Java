@@ -48,7 +48,7 @@ const Vuelos = () => {
       const response = await api.put(`/vuelos/${id}`, editingVuelo);
       setVuelos(
         vuelos.map((vuelo) =>
-          vuelo.id_vuelo === id ? response.data : vuelo
+          vuelo._id === id ? response.data : vuelo
         )
       );
       setEditingVuelo(null);
@@ -61,7 +61,7 @@ const Vuelos = () => {
     if(confirm("¿Seguro desea eliminar este vuelo?")) {
       try {
         await api.delete(`/vuelos/${id}`);
-        setVuelos(vuelos.filter((vuelo) => vuelo.id_vuelo !== id));
+        setVuelos(vuelos.filter((vuelo) => vuelo._id !== id));
       } catch (error) {
         console.error("Error deleting vuelo:", error);
       }
@@ -86,10 +86,10 @@ const Vuelos = () => {
         </thead>
         <tbody>
           {vuelos.map((vuelo) => (
-            <tr key={vuelo.id_vuelo}>
-              {editingVuelo?.id_vuelo === vuelo.id_vuelo ? (
+            <tr key={vuelo._id}>
+              {editingVuelo?._id === vuelo._id ? (
                 <>
-                  <td>{vuelo.id_vuelo}</td>
+                  <td>{vuelo._id}</td>
                   <td>
                     <input
                       type="date"
@@ -153,13 +153,13 @@ const Vuelos = () => {
                     />
                   </td>
                   <td>
-                    <button onClick={() => handleUpdateVuelo(vuelo.id_vuelo)}>Guardar</button>
+                    <button onClick={() => handleUpdateVuelo(vuelo._id)}>Guardar</button>
                     <button onClick={() => setEditingVuelo(null)}>Cancelar</button>
                   </td>
                 </>
               ) : (
                 <>
-                  <td>{vuelo.id_vuelo}</td>
+                  <td>{vuelo._id}</td>
                   <td>{vuelo.fecha}</td>
                   <td>{vuelo.hora}</td>
                   <td>{vuelo.origen}</td>
@@ -168,7 +168,7 @@ const Vuelos = () => {
                   <td>{vuelo.plazasTurista}</td>
                   <td>
                     <button onClick={() => setEditingVuelo(vuelo)}>Editar</button>
-                    <button onClick={() => handleDeleteVuelo(vuelo.id_vuelo)}>
+                    <button onClick={() => handleDeleteVuelo(vuelo._id)}>
                       Eliminar
                     </button>
                   </td>

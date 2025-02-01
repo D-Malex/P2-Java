@@ -6,7 +6,7 @@ const Personal = () => {
   const [usuarios, setUsuarios] = useState([]);
   const [sucursales, setSucursales] = useState([]);
   const [searchEmail, setSearchEmail] = useState("");
-  const [rolSeleccionado, setRolSeleccionado] = useState("3");
+  const [rolSeleccionado, setRolSeleccionado] = useState("679d40bca61fa54e261f61a1");
   const [editingUsuario, setEditingUsuario] = useState(null);
   const [newUsuario, setNewUsuario] = useState({
     nombre: "",
@@ -16,11 +16,11 @@ const Personal = () => {
     direccion: "",
     telefono: "",
     id_sucursal: null,
-    rol: { id_rol: parseInt(rolSeleccionado, 10) },
+    rol: { id_rol: rolSeleccionado },
   });
 
   useEffect(() => {
-    setNewUsuario((prev) => ({ ...prev, rol: { id_rol: parseInt(rolSeleccionado, 10) }, }));
+    setNewUsuario((prev) => ({ ...prev, rol: { id_rol: rolSeleccionado }, }));
     fetchUsuarios();
     fetchSucursales();
   }, [rolSeleccionado]);
@@ -57,7 +57,7 @@ const Personal = () => {
         direccion: "",
         telefono: "",
         id_sucursal: null,
-        rol: { id_rol: parseInt(rolSeleccionado, 10) },
+        rol: { id_rol: rolSeleccionado },
       });
     } catch (error) {
       console.error("Error creating usuario:", error);
@@ -104,9 +104,9 @@ const Personal = () => {
             onChange={(e) => setSearchEmail(e.target.value)}
           />
           <select value={rolSeleccionado} onChange={(e) => setRolSeleccionado(e.target.value)}>
-            <option value="3">Vendedores</option>
-            <option value="2">Administradores</option>
-            <option value="1">Socios</option>
+            <option value="679d40bca61fa54e261f61a1">Vendedores</option>
+            <option value="679d40bca61fa54e261f61a0">Administradores</option>
+            <option value="679d40bca61fa54e261f619f">Socios</option>
           </select>
         </div>
 
@@ -119,7 +119,7 @@ const Personal = () => {
               <th>Apellido</th>
               <th>Email</th>
               <th>Teléfono</th>
-              {rolSeleccionado === "3" && <th>Sucursal</th>}
+              {rolSeleccionado === "679d40bca61fa54e261f61a1" && <th>Sucursal</th>}
               <th>Acciones</th>
             </tr>
           </thead>
@@ -149,7 +149,7 @@ const Personal = () => {
                         onChange={(e) => setEditingUsuario({ ...editingUsuario, telefono: e.target.value })}
                       />
                     </td>
-                    {rolSeleccionado === "3" && (
+                    {rolSeleccionado === "679d40bca61fa54e261f61a1" && (
                       <td>
                         <select value={editingUsuario.id_sucursal || ""}
                           onChange={(e) => setEditingUsuario({ ...editingUsuario, id_sucursal: parseInt(e.target.value, 10),})}
@@ -176,7 +176,7 @@ const Personal = () => {
                     <td>{usuario.apellido}</td>
                     <td>{usuario.email}</td>
                     <td>{usuario.telefono}</td>
-                    {rolSeleccionado === "3" && (
+                    {rolSeleccionado === "679d40bca61fa54e261f61a1" && (
                       <td>
                         {
                           sucursales.find(
