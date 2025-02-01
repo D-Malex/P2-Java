@@ -8,6 +8,7 @@ const hotelRoutes = require('./hotelRoutes');
 const vueloRoutes = require('./vueloRoutes');
 const viajeRoutes = require('./viajeRoutes');
 const ventaRoutes = require('./ventaRoutes');
+const authRoutes = require('./authRoutes');
 
 // Usar las rutas sectorizadas
 router.use('/usuarios', usuarioRoutes);
@@ -16,6 +17,7 @@ router.use('/hoteles', hotelRoutes);
 router.use('/vuelos', vueloRoutes);
 router.use('/viajes', viajeRoutes);
 router.use('/ventas', ventaRoutes);
+router.use('/auth', authRoutes);
 
 router.get('/', (req, res) => {
   res.send('Bienvenido a la API de Columbia Viajes');

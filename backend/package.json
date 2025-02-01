@@ -8,11 +8,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./app.js",
-    "seed:roles": "node ./seeds/roleEntity-seed.js", 
-    "seed:sucursales": "node ./seeds/sucursal-seed.js", 
-    "seed:hoteles": "node ./seeds/hotel-seed.js", 
-    "seed:usuarios": "node ./seeds/usuario-seed.js", 
-    "seed:vuelosñ": "node ./seeds/vuelo-seed.js", 
+    "seed:roles": "node ./seeds/roleEntity-seed.js",
+    "seed:sucursales": "node ./seeds/sucursal-seed.js",
+    "seed:hoteles": "node ./seeds/hotel-seed.js",
+    "seed:usuarios": "node ./seeds/usuario-seed.js",
+    "seed:vuelosñ": "node ./seeds/vuelo-seed.js",
     "seeds": "node ./seeds/roleEntity-seed.js && node ./seeds/sucursal-seed.js && node ./seeds/hotel-seed.js && node ./seeds/usuario-seed.js && node ./seeds/vuelo-seed.js",
     "unseeds": "node ./seeds/unseeds.js",
     "dev": "nodemon ./app.js"
@@ -20,8 +20,10 @@
   "dependencies": {
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5"
   },
   "devDependencies": {
