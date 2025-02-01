@@ -1,0 +1,80 @@
+### VIAJES REQUESTS ###
+
+GET http://localhost:3000/api/viajes
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/api/viajes/679dbc7c2dc63aab0d931355
+Content-Type: application/json
+
+###
+
+POST http://localhost:3000/api/viajes/new
+Content-Type: application/json
+
+{
+  "sucursal": "679d454b58aedbbf0aadbfcd",
+  "usuario": "679db95326a57c96186d13f4",
+  "hotel": "679db25ba4b0f46cde781df5",
+  "pensionHotel": "COMPLETA",  
+  "vuelo": "679db51a9105fb4c87f78411",
+  "claseVuelo": "PRIMERA",
+  "fechaLlegada": "2025-05-25",
+  "fechaRetorno": "2025-06-03",
+  "precio": 5000
+}
+
+###
+
+POST http://localhost:3000/api/viajes/news
+Content-Type: application/json
+
+[
+  {
+    "sucursal": "679d454b58aedbbf0aadbfcd",
+    "usuario": "679db95326a57c96186d13f4",
+    "hotel": "679db25ba4b0f46cde781df5",
+    "pensionHotel": "COMPLETA",  
+    "vuelo": "679db51a9105fb4c87f78411",
+    "claseVuelo": "PRIMERA",
+    "fechaLlegada": "2025-05-25",
+    "fechaRetorno": "2025-06-03",
+    "precio": 5000
+  },
+  {
+    "sucursal": "679d454b58aedbbf0aadbfce",
+    "usuario": "679db95326a57c96186d13f9",
+    "hotel": "679db25ba4b0f46cde781df7",
+    "pensionHotel": "MEDIA",  
+    "vuelo": "679db51a9105fb4c87f78412",
+    "claseVuelo": "TURISTA",
+    "fechaLlegada": "2025-03-15",
+    "fechaRetorno": "2025-03-23",
+    "precio": 4000
+  }
+]
+
+###
+
+PUT http://localhost:3000/api/viajes/679dbc7c2dc63aab0d931355
+Content-Type: application/json
+
+{
+  "sucursal": "679d454b58aedbbf0aadbfcd",
+  "usuario": "679db95326a57c96186d13f4",
+  "hotel": "679db25ba4b0f46cde781df5",
+  "pensionHotel": "COMPLETA",  
+  "vuelo": "679db51a9105fb4c87f78411",
+  "claseVuelo": "PRIMERA",
+  "fechaLlegada": "2025-05-25",
+  "fechaRetorno": "2025-06-03",
+  "precio": 6000
+}
+
+###
+
+DELETE http://localhost:3000/api/viajes/679db9b326a57c96186d1402
+Content-Type: application/json
+
+###
