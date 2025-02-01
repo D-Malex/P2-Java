@@ -1,0 +1,54 @@
+GET http://localhost:3000/api/sucursales
+Content-Type: application/json
+
+###
+
+GET http://localhost:3000/api/sucursales/679daebc6b3e0994f34789d8
+Content-Type: application/json
+
+###
+
+POST http://localhost:3000/api/sucursales/new
+Content-Type: application/json
+
+{
+  "direccion": "Av. Santa Fe 1234",
+  "email": "columbiaresponde@cv.gmail.com",
+  "telefono": "+54 9 11 9263-6487"
+}
+
+###
+
+POST http://localhost:3000/api/sucursales/news
+Content-Type: application/json
+
+[
+  {
+    "direccion": "Av. Santa Fe 1234",
+    "email": "columbiaresponde@cv.gmail.com",
+    "telefono": "+54 9 11 9263-6487"
+  },
+  {
+    "direccion": "Av. De Las Camelias 954",
+    "email": "columbiainforma@cv.gmail.com",
+    "telefono": "+54 9 11 9632-7845"
+  }
+]
+
+###
+
+PUT http://localhost:3000/api/sucursales/679dae006b3e0994f34789d2
+Content-Type: application/json
+
+{
+  "direccion": "Av. Santa Fe 1234",
+  "email": "columbiaresponde@cv.gmail.com",
+  "telefono": "+54 9 11 9263-6487"
+}
+
+###
+
+DELETE http://localhost:3000/api/sucursales/679dae006b3e0994f34789d2
+Content-Type: application/json
+
+###
