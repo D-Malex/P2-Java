@@ -32,7 +32,7 @@ Content-Type: application/json
     "direccion": "dadaasdf 5",
     "telefono": "1234567890",
     "rol": { "id_rol": "679d40bca61fa54e261f61a1" },
-    "id_sucursal": "679d40bd009c4a8531e5eae7"
+    "id_sucursal": "679d454b58aedbbf0aadbfce"
   },
   {
     "nombre": "Octavio",
@@ -42,7 +42,7 @@ Content-Type: application/json
     "direccion": "dadaasdf 5",
     "telefono": "1234567890",
     "rol": { "id_rol": "679d40bca61fa54e261f61a1" },
-    "id_sucursal": "679d40bd009c4a8531e5eae8"
+    "id_sucursal": "679d454b58aedbbf0aadbfcf"
   },
   {
     "nombre": "Carolina",
@@ -75,44 +75,44 @@ Content-Type: application/json
     "nombre": "El nuevo",
     "apellido": "deEsta",
     "email": "agar.ramessta@example.com",
-    "psw": "12345",
+    "psw": "1234",
     "direccion": "asasdf",
     "telefono": "1234567890",
-    "rol": { "id_rol": "679d40bca61fa54e261f61a1" }, //VENDEDOR
-    "id_sucursal": "679d40bd009c4a8531e5eae6" //SUCURSAL#1
+    "rol": { "id_rol": "679d40bca61fa54e261f61a1" },
+    "id_sucursal": "679d454b58aedbbf0aadbfcd"
 }
 
 ###
 
-GET http://localhost:8080/usuarios
+GET http://localhost:3000/api/usuarios
 Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/usuarios/17
+GET http://localhost:3000/api/usuarios/679da26860b9731564e0755c
 Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/usuarios/emails
+GET http://localhost:3000/api/usuarios/rol/679d40bca61fa54e261f61a1
 Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/usuarios/email/?email=madev@gmail.com
+GET http://localhost:3000/api/usuarios/emails
 Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:8080/usuarios/18
+GET http://localhost:3000/api/usuarios/email/?email=agar.ramessta@example.com
 Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/usuarios/emails
+GET http://localhost:3000/api/usuarios/emails
 Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:8080/usuarios/23
+DELETE  http://localhost:3000/api/usuarios/679d444c44117e448a355f5b
 Content-Type: application/json

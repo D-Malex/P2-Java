@@ -154,8 +154,7 @@ exports.obtenerUsuarioPorId = async (req, res) => {
     const { id } = req.params;
 
     const usuario = await Usuario.findById(id)
-      .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol
-      .populate('id_sucursal', 'direccion'); // Incluir solo el campo 'direccion' de la sucursal
+    .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol;
 
     if (!usuario) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
@@ -172,8 +171,7 @@ exports.obtenerUsuariosPorRol = async (req, res) => {
     const { id_rol } = req.params;
 
     const usuarios = await Usuario.find({ rol: id_rol })
-      .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol
-      .populate('id_sucursal', 'direccion'); // Incluir solo el campo 'direccion' de la sucursal
+    .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol;
 
     if (usuarios.length === 0) {
       return res.status(404).json({ message: 'No se encontraron usuarios con ese rol' });
@@ -190,8 +188,7 @@ exports.obtenerUsuarioPorEmail = async (req, res) => {
     const { email } = req.query;
 
     const usuario = await Usuario.findOne({ email })
-      .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol
-      .populate('id_sucursal', 'direccion'); // Incluir solo el campo 'direccion' de la sucursal
+    .populate('rol', 'nombre') // Incluir solo el campo 'nombre' del rol;
 
     if (!usuario) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
@@ -206,10 +203,14 @@ exports.obtenerUsuarioPorEmail = async (req, res) => {
 exports.obtenerEmails = async (req, res) => {
   try {
     const usuarios = await Usuario.find({}, { email: 1, _id: 0 }); // Solo obtener el campo email
-    const emails = usuarios.map((usuario) => usuario.email);
+    if (!usuarios || usuarios.length === 0) {
+      return res.status(404).json({ message: 'No se encontraron usuarios' });
+    }
 
+    const emails = usuarios.map((usuario) => usuario.email);
     res.status(200).json(emails);
   } catch (error) {
+    console.error('Error en obtenerEmails:', error);
     res.status(500).json({ message: 'Error al obtener los emails: ' + error.message });
   }
 };
