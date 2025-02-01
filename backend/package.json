@@ -10,7 +10,10 @@
     "start": "node ./app.js",
     "seed:roles": "node ./seeds/roleEntity-seed.js", 
     "seed:sucursales": "node ./seeds/sucursal-seed.js", 
-    "seeds": "node ./seeds/roleEntity-seed.js && node ./seeds/sucursal-seed.js",
+    "seed:hoteles": "node ./seeds/hotel-seed.js", 
+    "seed:usuarios": "node ./seeds/usuario-seed.js", 
+    "seed:vuelosñ": "node ./seeds/vuelo-seed.js", 
+    "seeds": "node ./seeds/roleEntity-seed.js && node ./seeds/sucursal-seed.js && node ./seeds/hotel-seed.js && node ./seeds/usuario-seed.js && node ./seeds/vuelo-seed.js",
     "dev": "nodemon ./app.js"
   },
   "dependencies": {
