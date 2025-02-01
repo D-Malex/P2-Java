@@ -1,2 +1,64 @@
-GET http://localhost:8080/hoteles/?ciudad=Estados Unidos, Nueva York
+### HOTELES REQUESTS ###
+
+GET http://localhost:3000/api/hoteles
 Content-Type: application/json
+
+###
+
+GET http://localhost:3000/api/hoteles/679db205a4b0f46cde781dee
+Content-Type: application/json
+
+###
+
+POST http://localhost:3000/api/hoteles/new
+Content-Type: application/json
+
+{
+  "nombre": "El Austral",
+  "direccion": "New York 338",
+  "ciudad": "Argentina, Buenos Aires",
+  "telefono": "+54 9 11 2365-7894",
+  "plazasDisponibles": 50
+}
+
+###
+
+POST http://localhost:3000/api/hoteles/news
+Content-Type: application/json
+
+[
+  {
+    "nombre": "El Austral",
+    "direccion": "New York 338",
+    "ciudad": "Argentina, Buenos Aires",
+    "telefono": "+54 9 11 2365-7894",
+    "plazasDisponibles": 50
+  },
+  {
+    "nombre": "La monigota",
+    "direccion": "Asturias 3960",
+    "ciudad": "España, Madrid",
+    "telefono": "11 9632-8526",
+    "plazasDisponibles": 230
+  }
+]
+
+###
+
+PUT http://localhost:3000/api/hoteles/679db25ba4b0f46cde781df5
+Content-Type: application/json
+
+{
+  "nombre": "El Austral",
+  "direccion": "New York 338",
+  "ciudad": "Argentina, Buenos Aires",
+  "telefono": "+54 9 11 2365-7894",
+  "plazasDisponibles": 53
+}
+
+###
+
+DELETE http://localhost:3000/api/hoteles/679db205a4b0f46cde781dee
+Content-Type: application/json
+
+###

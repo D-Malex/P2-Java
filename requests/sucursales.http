@@ -1,3 +1,5 @@
+### SUCURSALES REQUESTS ###
+
 GET http://localhost:3000/api/sucursales
 Content-Type: application/json
 
