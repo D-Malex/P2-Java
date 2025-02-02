@@ -48,7 +48,7 @@ const Hoteles = () => {
       const response = await api.put(`/hoteles/${id}`, editingHotel);
       setHoteles(
         hoteles.map((hotel) =>
-          hotel.id_hotel === id ? response.data : hotel
+          hotel._id === id ? response.data : hotel
         )
       );
       setEditingHotel(null);
@@ -61,7 +61,7 @@ const Hoteles = () => {
     if(confirm("¿Seguro que desea eliminar este hotel?")) {
       try {
         await api.delete(`/hoteles/${id}`);
-        setHoteles(hoteles.filter((hotel) => hotel.id_hotel !== id));
+        setHoteles(hoteles.filter((hotel) => hotel._id !== id));
       } catch (error) {
         console.error("Error deleting hotel:", error);
       }
@@ -85,10 +85,10 @@ const Hoteles = () => {
         </thead>
         <tbody>
           {hoteles.map((hotel) => (
-            <tr key={hotel.id_hotel}>
-              {editingHotel?.id_hotel === hotel.id_hotel ? (
+            <tr key={hotel._id}>
+              {editingHotel?._id === hotel._id ? (
                 <>
-                  <td>{hotel.id_hotel}</td>
+                  <td>{hotel._id}</td>
                   <td>
                     <input
                       type="text"
@@ -139,13 +139,13 @@ const Hoteles = () => {
                     />
                   </td>
                   <td>
-                    <button onClick={() => handleUpdateHotel(hotel.id_hotel)}>Guardar</button>
+                    <button onClick={() => handleUpdateHotel(hotel._id)}>Guardar</button>
                     <button onClick={() => setEditingHotel(null)}>Cancelar</button>
                   </td>
                 </>
               ) : (
                 <>
-                  <td>{hotel.id_hotel}</td>
+                  <td>{hotel._id}</td>
                   <td>{hotel.nombre}</td>
                   <td>{hotel.direccion}</td>
                   <td>{hotel.ciudad}</td>
@@ -153,7 +153,7 @@ const Hoteles = () => {
                   <td>{hotel.plazasDisponibles}</td>
                   <td>
                     <button onClick={() => setEditingHotel(hotel)}>Editar</button>
-                    <button onClick={() => handleDeleteHotel(hotel.id_hotel)}>
+                    <button onClick={() => handleDeleteHotel(hotel._id)}>
                       Eliminar
                     </button>
                   </td>

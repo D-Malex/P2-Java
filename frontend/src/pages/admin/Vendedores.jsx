@@ -15,7 +15,7 @@ const Vendedores = () => {
     direccion: "",
     telefono: "",
     id_sucursal: null,
-    rol: { id_rol: 3 },
+    rol: { id_rol: "679e8b7a6ce41db2b0d3b904" },
   });
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Vendedores = () => {
 
   const fetchVendedores = async () => {
     try {
-      const response = await api.get("/usuarios/rol/3");
+      const response = await api.get("/usuarios/rol/679e8b7a6ce41db2b0d3b904");
       setVendedores(response.data);
     } catch (error) {
       console.error("Error fetching vendedores:", error);
@@ -53,7 +53,7 @@ const Vendedores = () => {
         direccion: "",
         telefono: "",
         id_sucursal: null,
-        rol: { id_rol: 3 },
+        rol: { id_rol: "679e8b7a6ce41db2b0d3b904" },
       });
     } catch (error) {
       console.error("Error creating vendedor:", error);
@@ -64,7 +64,7 @@ const Vendedores = () => {
     try {
       const response = await api.put(`/usuarios/update`, editingVendedor);
       setVendedores(
-        vendedores.map((vendedor) => vendedor.id_usuario === id ? response.data : vendedor)
+        vendedores.map((vendedor) => vendedor._id === id ? response.data : vendedor)
       );
       setEditingVendedor(null);
     } catch (error) {
@@ -76,7 +76,7 @@ const Vendedores = () => {
     if(confirm("¿Seguro que desea eliminar a este vendedor?")) {
       try {
         await api.delete(`/usuarios/${id}`);
-        setVendedores(vendedores.filter((vendedor) => vendedor.id_usuario !== id));
+        setVendedores(vendedores.filter((vendedor) => vendedor._id !== id));
       } catch (error) {
         console.error("Error deleting vendedor:", error);
       }
@@ -112,10 +112,10 @@ const Vendedores = () => {
 
           <tbody>
             {filteredVendedores.map((vendedor) => (
-              <tr key={vendedor.id_usuario}>
-                {editingVendedor?.id_usuario === vendedor.id_usuario ? (
+              <tr key={vendedor._id}>
+                {editingVendedor?._id === vendedor._id ? (
                   <>
-                    <td>{vendedor.id_usuario}</td>
+                    <td>{vendedor._id}</td>
                     <td>
                       <input type="text" value={editingVendedor.nombre || ""}
                         onChange={(e) => setEditingVendedor({ ...editingVendedor, nombre: e.target.value })}
@@ -142,25 +142,25 @@ const Vendedores = () => {
                         onChange={(e) =>
                           setEditingVendedor({
                             ...editingVendedor,
-                            id_sucursal: parseInt(e.target.value, 10),
+                            id_sucursal: e.target.value,
                           })
                         }
                       >
                         {sucursales.map((sucursal) => (
-                          <option key={sucursal.id_sucursal} value={sucursal.id_sucursal}>
-                            {sucursal.id_sucursal} {sucursal.direccion}
+                          <option key={sucursal._id} value={sucursal._id}>
+                            {sucursal._id} {sucursal.direccion}
                           </option>
                         ))}
                       </select>
                     </td>
                     <td>
-                      <button onClick={() => handleUpdateVendedor(vendedor.id_usuario)}>Guardar</button>
+                      <button onClick={() => handleUpdateVendedor(vendedor._id)}>Guardar</button>
                       <button onClick={() => setEditingVendedor(null)}>Cancelar</button>
                     </td>
                   </>
                 ) : (
                   <>
-                    <td>{vendedor.id_usuario}</td>
+                    <td>{vendedor._id}</td>
                     <td>{vendedor.nombre}</td>
                     <td>{vendedor.apellido}</td>
                     <td>{vendedor.email}</td>
@@ -168,7 +168,7 @@ const Vendedores = () => {
                     <td>{vendedor.id_sucursal}</td>
                     <td>
                       <button onClick={() => setEditingVendedor(vendedor)}>Editar</button>
-                      <button onClick={() => handleDeleteVendedor(vendedor.id_usuario)}>Eliminar</button>
+                      <button onClick={() => handleDeleteVendedor(vendedor._id)}>Eliminar</button>
                     </td>
                   </>
                 )}
@@ -232,7 +232,7 @@ const Vendedores = () => {
         onChange={(e) =>
           setNewVendedor({
             ...newVendedor,
-            id_sucursal: parseInt(e.target.value, 10),
+            id_sucursal: e.target.value,
           })
         }
       >
@@ -240,8 +240,8 @@ const Vendedores = () => {
           Seleccione una sucursal
         </option>
         {sucursales.map((sucursal) => (
-          <option key={sucursal.id_sucursal} value={sucursal.id_sucursal}>
-            {sucursal.id_sucursal} - {sucursal.direccion}
+          <option key={sucursal._id} value={sucursal._id}>
+            {sucursal._id} - {sucursal.direccion}
           </option>
         ))}
       </select>

@@ -35,7 +35,7 @@ const Sucursales = () => {
       const response = await api.put(`/sucursales/${id}`, editingSucursal);
       setSucursales(
         sucursales.map((sucursal) =>
-          sucursal.id_sucursal === id ? response.data : sucursal
+          sucursal._id === id ? response.data : sucursal
         )
       );
       setEditingSucursal(null);
@@ -48,7 +48,7 @@ const Sucursales = () => {
     if(confirm("¿Seguro desea eliminiar esta sucursal?")) {
       try {
         await api.delete(`/sucursales/${id}`);
-        setSucursales(sucursales.filter((sucursal) => sucursal.id_sucursal !== id));
+        setSucursales(sucursales.filter((sucursal) => sucursal._id !== id));
       } catch (error) {
         console.error("Error deleting sucursal:", error);
       }
@@ -70,10 +70,10 @@ const Sucursales = () => {
         </thead>
         <tbody>
           {sucursales.map((sucursal) => (
-            <tr key={sucursal.id_sucursal}>
-              {editingSucursal?.id_sucursal === sucursal.id_sucursal ? (
+            <tr key={sucursal._id}>
+              {editingSucursal?._id === sucursal._id ? (
                 <>
-                  <td>{sucursal.id_sucursal}</td>
+                  <td>{sucursal._id}</td>
                   <td>
                     <input
                       type="text"
@@ -102,7 +102,7 @@ const Sucursales = () => {
                     />
                   </td>
                   <td>
-                    <button onClick={() => handleUpdateSucursal(sucursal.id_sucursal)}>
+                    <button onClick={() => handleUpdateSucursal(sucursal._id)}>
                       Guardar
                     </button>
                     <button onClick={() => setEditingSucursal(null)}>Cancelar</button>
@@ -110,13 +110,13 @@ const Sucursales = () => {
                 </>
               ) : (
                 <>
-                  <td>{sucursal.id_sucursal}</td>
+                  <td>{sucursal._id}</td>
                   <td>{sucursal.direccion}</td>
                   <td>{sucursal.email}</td>
                   <td>{sucursal.telefono}</td>
                   <td>
                     <button onClick={() => setEditingSucursal(sucursal)}>Editar</button>
-                    <button onClick={() => handleDeleteSucursal(sucursal.id_sucursal)}>
+                    <button onClick={() => handleDeleteSucursal(sucursal._id)}>
                       Eliminar
                     </button>
                   </td>
