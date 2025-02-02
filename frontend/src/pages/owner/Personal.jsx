@@ -6,7 +6,7 @@ const Personal = () => {
   const [usuarios, setUsuarios] = useState([]);
   const [sucursales, setSucursales] = useState([]);
   const [searchEmail, setSearchEmail] = useState("");
-  const [rolSeleccionado, setRolSeleccionado] = useState("679d40bca61fa54e261f61a1");
+  const [rolSeleccionado, setRolSeleccionado] = useState("679e8b7a6ce41db2b0d3b904");
   const [editingUsuario, setEditingUsuario] = useState(null);
   const [newUsuario, setNewUsuario] = useState({
     nombre: "",
@@ -29,7 +29,7 @@ const Personal = () => {
     try {
       const response = await api.get(`/usuarios/rol/${rolSeleccionado}`);
       const usuarioLS = JSON.parse(localStorage.getItem("usuario"));
-      const usuarios = response.data.filter((usuario) => usuario.id_usuario !== usuarioLS.id_usuario);
+      const usuarios = response.data.filter((usuario) => usuario._id !== usuarioLS._id);
       setUsuarios(usuarios);
     } catch (error) {
       console.error("Error fetching usuarios:", error);
@@ -68,7 +68,7 @@ const Personal = () => {
     try {
       const response = await api.put(`/usuarios/update`, editingUsuario);
       setUsuarios(
-        usuarios.map((usuario) => usuario.id_usuario === id ? response.data : usuario)
+        usuarios.map((usuario) => usuario._id === id ? response.data : usuario)
       );
       setEditingUsuario(null);
     } catch (error) {
@@ -80,7 +80,7 @@ const Personal = () => {
     if(confirm("¿Seguro desea eliminar a este usuario?")) {
       try {
         await api.delete(`/usuarios/${id}`);
-        setUsuarios(usuarios.filter((usuario) => usuario.id_usuario !== id));
+        setUsuarios(usuarios.filter((usuario) => usuario._id !== id));
       } catch (error) {
         console.error("Error deleting usuario:", error);
       }
@@ -104,9 +104,9 @@ const Personal = () => {
             onChange={(e) => setSearchEmail(e.target.value)}
           />
           <select value={rolSeleccionado} onChange={(e) => setRolSeleccionado(e.target.value)}>
-            <option value="679d40bca61fa54e261f61a1">Vendedores</option>
-            <option value="679d40bca61fa54e261f61a0">Administradores</option>
-            <option value="679d40bca61fa54e261f619f">Socios</option>
+            <option value="679e8b7a6ce41db2b0d3b904">Vendedores</option>
+            <option value="679e8b7a6ce41db2b0d3b903">Administradores</option>
+            <option value="679e8b7a6ce41db2b0d3b902">Socios</option>
           </select>
         </div>
 
@@ -119,16 +119,16 @@ const Personal = () => {
               <th>Apellido</th>
               <th>Email</th>
               <th>Teléfono</th>
-              {rolSeleccionado === "679d40bca61fa54e261f61a1" && <th>Sucursal</th>}
+              {rolSeleccionado === "679e8b7a6ce41db2b0d3b904" && <th>Sucursal</th>}
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {filteredUsuarios.map((usuario) => (
-              <tr key={usuario.id_usuario}>
-                {editingUsuario?.id_usuario === usuario.id_usuario ? (
+              <tr key={usuario._id}>
+                {editingUsuario?._id === usuario._id ? (
                   <>
-                    <td>{usuario.id_usuario}</td>
+                    <td>{usuario._id}</td>
                     <td>
                       <input type="text" value={editingUsuario.nombre || ""}
                         onChange={(e) => setEditingUsuario({ ...editingUsuario, nombre: e.target.value })}
@@ -149,21 +149,21 @@ const Personal = () => {
                         onChange={(e) => setEditingUsuario({ ...editingUsuario, telefono: e.target.value })}
                       />
                     </td>
-                    {rolSeleccionado === "679d40bca61fa54e261f61a1" && (
+                    {rolSeleccionado === "679e8b7a6ce41db2b0d3b904" && (
                       <td>
                         <select value={editingUsuario.id_sucursal || ""}
-                          onChange={(e) => setEditingUsuario({ ...editingUsuario, id_sucursal: parseInt(e.target.value, 10),})}
+                          onChange={(e) => setEditingUsuario({ ...editingUsuario, id_sucursal: e.target.value,})}
                         >
                           {sucursales.map((sucursal) => (
-                            <option key={sucursal.id_sucursal} value={sucursal.id_sucursal}>
-                              {sucursal.id_sucursal} {sucursal.direccion}
+                            <option key={sucursal._id} value={sucursal._id}>
+                              {sucursal._id} {sucursal.direccion}
                             </option>
                           ))}
                         </select>
                       </td>
                     )}
                     <td>
-                      <button onClick={() => handleUpdateUsuario(usuario.id_usuario)}>
+                      <button onClick={() => handleUpdateUsuario(usuario._id)}>
                         Guardar
                       </button>
                       <button onClick={() => setEditingUsuario(null)}>Cancelar</button>
@@ -171,23 +171,23 @@ const Personal = () => {
                   </>
                 ) : (
                   <>
-                    <td>{usuario.id_usuario}</td>
+                    <td>{usuario._id}</td>
                     <td>{usuario.nombre}</td>
                     <td>{usuario.apellido}</td>
                     <td>{usuario.email}</td>
                     <td>{usuario.telefono}</td>
-                    {rolSeleccionado === "679d40bca61fa54e261f61a1" && (
+                    {rolSeleccionado === "679e8b7a6ce41db2b0d3b904" && (
                       <td>
                         {
                           sucursales.find(
-                            (sucursal) => sucursal.id_sucursal === usuario.id_sucursal
+                            (sucursal) => sucursal._id === usuario.id_sucursal
                           )?.direccion || null
                         }
                       </td>
                     )}
                     <td>
                       <button onClick={() => setEditingUsuario(usuario)}>Editar</button>
-                      <button onClick={() => handleDeleteUsuario(usuario.id_usuario)}>
+                      <button onClick={() => handleDeleteUsuario(usuario._id)}>
                         Eliminar
                       </button>
                     </td>
@@ -219,14 +219,14 @@ const Personal = () => {
           <input type="text" placeholder="Teléfono" value={newUsuario.telefono}
             onChange={(e) => setNewUsuario({ ...newUsuario, telefono: e.target.value })}
           />
-          {rolSeleccionado === "3" && (
+          {rolSeleccionado === "679e8b7a6ce41db2b0d3b904" && (
             <select value={newUsuario.id_sucursal || ""}
-              onChange={(e) => setNewUsuario({ ...newUsuario, id_sucursal: parseInt(e.target.value, 10),})}
+              onChange={(e) => setNewUsuario({ ...newUsuario, id_sucursal: e.target.value,})}
             >
               <option value="" disabled>Seleccione sucursal</option>
                 {sucursales.map((sucursal) => (
-                  <option key={sucursal.id_sucursal} value={sucursal.id_sucursal}>
-                    {sucursal.id_sucursal} {sucursal.direccion}
+                  <option key={sucursal._id} value={sucursal._id}>
+                    {sucursal._id} {sucursal.direccion}
                   </option>
                 ))}
             </select>
