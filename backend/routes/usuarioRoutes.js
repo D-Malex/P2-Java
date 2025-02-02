@@ -3,9 +3,9 @@ const router = express.Router();
 const usuarioController = require('../controllers/UsuarioController');
 
 router.get('', usuarioController.getUsuarios);
+router.put('/update', usuarioController.actualizarUsuario);
 router.post('/new', usuarioController.createUsuario);
 router.post('/news', usuarioController.createUsuarios);
-router.put('/update', usuarioController.actualizarUsuario);
 router.get('/emails', usuarioController.obtenerEmails);
 router.get('/email/', usuarioController.obtenerUsuarioPorEmail);
 router.get('/:id', usuarioController.obtenerUsuarioPorId);

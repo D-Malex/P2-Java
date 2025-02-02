@@ -49,7 +49,7 @@ const cargarUsuarios = async () => {
         psw: '1234',
         direccion: 'Po raca 123',
         telefono: '12345678',
-        id_sucursal: "679e5ba2cb3855bc1f89eeef", 
+        id_sucursal: "679efed38e3326d5e84accd5", 
         rol: vendedor._id,
       },
       {

@@ -116,11 +116,10 @@ exports.createUsuarios = async (req, res) => {
 
 exports.actualizarUsuario = async (req, res) => {
   try {
-    const { id } = req.params;
     const nuevosDatos = req.body;
 
     // Validar que el rol y la sucursal sean ObjectId válidos
-    if (nuevosDatos.rol && !mongoose.Types.ObjectId.isValid(nuevosDatos.rol)) {
+    if (nuevosDatos.rol && !mongoose.Types.ObjectId.isValid(nuevosDatos.rol._id)) {
       return res.status(400).json({ message: 'ID de rol no válido' });
     }
     if (nuevosDatos.id_sucursal && !mongoose.Types.ObjectId.isValid(nuevosDatos.id_sucursal)) {
@@ -128,13 +127,13 @@ exports.actualizarUsuario = async (req, res) => {
     }
 
     // Verificar si el usuario es vendedor y tiene sucursal asignada
-    if (nuevosDatos.rol === 'VENDEDOR' && !nuevosDatos.id_sucursal) {
+    if (nuevosDatos.rol.nombre === 'VENDEDOR' && !nuevosDatos.id_sucursal) {
       return res.status(400).json({ message: 'El vendedor debe tener una sucursal asignada.' });
     }
 
     // Buscar y actualizar el usuario
     const usuarioActualizado = await Usuario.findByIdAndUpdate(
-      id,
+      nuevosDatos._id,
       nuevosDatos,
       { new: true, runValidators: true }
     );

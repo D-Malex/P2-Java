@@ -26,11 +26,11 @@ function Sucursales() {
       </header>
       <div className="cards-container">
         {branches.map((branch) => (
-          <div className="card" key={branch.id_sucursal}>
+          <div className="card" key={branch._id}>
             <div className="map-icon-container">
               <FaMapMarkerAlt className="map-icon" />
             </div>
-            <h3>{`Sucursal ${branch.id_sucursal}`}</h3>
+            <h3>{`Sucursal ${branch._id}`}</h3>
             <p>Dirección: {branch.direccion}</p>
             <p>Teléfono: {branch.telefono}</p>
             <p>Email: {branch.email}</p>
