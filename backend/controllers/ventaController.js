@@ -25,6 +25,39 @@ exports.getVentas = async (req, res) => {
   }
 };
 
+exports.getVentasDeUsuario = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: 'ID de usuario no válido' });
+    }
+
+    const ventas = await Venta.find({ vendedor: id })
+      .populate({
+        path: "vendedor",
+        populate: { path: "rol" },
+      })
+      .populate({
+        path: "viaje",
+        populate: [
+          { path: "sucursal" },
+          { path: "hotel" },
+          { path: "vuelo" },
+          { path: "usuario", populate: "rol" },
+        ],
+      });
+
+    if (ventas.length === 0) {
+      return res.status(404).json({ message: 'No se encontraron ventas para este usuario' });
+    }
+
+    res.status(200).json(ventas);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener las ventas: ' + error.message });
+  }
+};
+
 exports.createVenta = async (req, res) => {
   try {
     const { vendedor, viaje, fechaVenta } = req.body;

@@ -71,6 +71,24 @@ exports.createHoteles = async (req, res) => {
   }
 };
 
+exports.obtenerHotelesPorCiudad = async (req, res) => {
+  try {
+    const { ciudad } = req.params;
+    if (!ciudad) {
+      return res.status(400).json({ message: 'Se requiere el nombre de la ciudad' });
+    }
+
+    const hoteles = await Hotel.find({ ciudad: ciudad });
+    if (hoteles.length === 0) {
+      return res.status(404).json({ message: 'No se encontraron hoteles en la ciudad especificada' });
+    }
+
+    res.status(200).json(hoteles);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener los hoteles: ' + error.message });
+  }
+};
+
 exports.obtenerHotelPorId = async (req, res) => {
   try {
     const { id } = req.params;
