@@ -6,7 +6,7 @@ const RegistroVentas = () => {
   const [ventas, setVentas] = useState([]);
   const [totalFacturado, setTotalFacturado] = useState(0);
   const usuario = JSON.parse(localStorage.getItem("usuario"));
-  const id_usuario = usuario.id_usuario;
+  const id_usuario = usuario._id;
 
   useEffect(() => {
     const fetchVentas = async () => {
@@ -52,7 +52,7 @@ const RegistroVentas = () => {
           <tbody>
             {ventas.length > 0 ? (
               ventas.map((venta, index) => (
-                <tr key={venta.id_venta}>
+                <tr key={venta._id}>
                   <td>{index + 1}</td>
                   <td>{new Date(venta.fechaVenta).toLocaleDateString()}</td>
                   <td>{venta.viaje.vuelo.destino}</td>

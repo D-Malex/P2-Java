@@ -29,7 +29,7 @@ const Vender = () => {
   // Obtener todos los vuelos disponibles
   useEffect(() => { 
     api.get("/vuelos").then((response) => setVuelos(response.data)); 
-    api.get("/usuarios/rol/4").then((response) => setUsuarios(response.data)); // TRAE TODOS LOS TURISTAS
+    api.get("/usuarios/rol/679e8b7a6ce41db2b0d3b905").then((response) => setUsuarios(response.data)); // TRAE TODOS LOS TURISTAS
   }, []);
 
   const calcularDiasExtra = (fechaLlegada, fechaRetorno) => {
@@ -47,13 +47,13 @@ const Vender = () => {
   };
 
   const handleVueloChange = (idVuelo) => {
-    const vuelo = vuelos.find((v) => v.id_vuelo === parseFloat(idVuelo));
+    const vuelo = vuelos.find((v) => v._id === idVuelo);
     setVueloSeleccionado(vuelo);
     setHoteles([]);
     setHotelSeleccionado(null);
 
     // Obtener hoteles disponibles en el destino del vuelo seleccionado
-    if (vuelo) {api.get(`/hoteles/?ciudad=${vuelo.destino}`).then((response) => setHoteles(response.data));}
+    if (vuelo) {api.get(`/hoteles/${vuelo.destino}`).then((response) => setHoteles(response.data));}
   };
 
   const calcularPrecio = async () => {
@@ -75,7 +75,7 @@ const Vender = () => {
   };
 
   const handleVender = () => {
-    if (!usuarioSeleccionado?.id_usuario || !vueloSeleccionado?.id_vuelo || !hotelSeleccionado?.id_hotel || !sucursal?.id_sucursal) {
+    if (!usuarioSeleccionado?._id || !vueloSeleccionado?._id || !hotelSeleccionado?._id || !sucursal?._id) {
       alert("Algunos datos esenciales no están seleccionados. Verifica la información ingresada.");
       return;
     }
@@ -128,8 +128,8 @@ const Vender = () => {
 
         api.post("/ventas/new", venta).then(() => { 
           // Actualizar las plazas disponibles
-          actualizarPlazasHotel(hotelSeleccionado.id_hotel);
-          actualizarPlazasVuelo(vueloSeleccionado.id_vuelo, claseVuelo);
+          actualizarPlazasHotel(hotelSeleccionado._id);
+          actualizarPlazasVuelo(vueloSeleccionado._id, claseVuelo);
           alert("Venta realizada exitosamente");
         });
       });
@@ -202,7 +202,7 @@ const Vender = () => {
           <select onChange={(e) => handleVueloChange(e.target.value)}>
             <option value="">-- Seleccione un vuelo --</option>
             {vuelos.map((vuelo) => (
-              <option key={vuelo.id_vuelo} value={vuelo.id_vuelo}>
+              <option key={vuelo._id} value={vuelo._id}>
                 {vuelo.origen} ➡️ {vuelo.destino} ({vuelo.fecha})
               </option>
             ))}
@@ -213,10 +213,10 @@ const Vender = () => {
           <>
             <div>
               <label>Seleccione un hotel:</label>
-              <select onChange={(e) => setHotelSeleccionado(hoteles.find((h) => h.id_hotel === parseInt(e.target.value)))}>
+              <select onChange={(e) => setHotelSeleccionado(hoteles.find((h) => h._id === e.target.value))}>
                 <option value="">-- Seleccione un hotel --</option>
                   {hoteles.map((hotel) => (
-                  <option key={hotel.id_hotel} value={hotel.id_hotel}>
+                  <option key={hotel._id} value={hotel._id}>
                     {hotel.nombre} ({hotel.direccion})
                   </option>
                 ))}

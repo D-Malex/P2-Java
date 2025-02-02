@@ -42,7 +42,7 @@ const Sucursal = () => {
       <div className="sucursal-container">
       <h1>Información de la Sucursal</h1>
         <div className="sucursal-card">
-          <h2>Sucursal Nro. {sucursalData.id_sucursal}</h2>
+          <h2>Sucursal</h2>
           <p><strong>Dirección:</strong> {sucursalData.direccion}</p>
           <p><strong>Email:</strong> {sucursalData.email}</p>
           <p><strong>Teléfono:</strong> {sucursalData.telefono}</p>

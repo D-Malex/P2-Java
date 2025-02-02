@@ -19,7 +19,7 @@ const Hoteles = () => {
       <h1 id="seller-hoteles-title">Hoteles exclusivos</h1>
       <div className="hoteles-container"> 
         {hoteles.map((hotel) => (
-          <div key={hotel.id_hotel} className="hotel-card" onClick={() => { navigate(`/sales`)}}>
+          <div key={hotel._id} className="hotel-card" onClick={() => { navigate(`/sales`)}}>
             <h3>{hotel.nombre}</h3>
             <p><b>Ubicación:</b> {hotel.ciudad}, {hotel.direccion}</p>
             <p><b>Telefono:</b> {hotel.telefono}</p>
